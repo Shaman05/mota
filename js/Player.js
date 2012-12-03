@@ -17,9 +17,8 @@ define(function(require, exports, module){
         this.direct = "up";  //玩家方向
         this.x = 10; //玩家x坐标 初始值可以任意
         this.y = 10; //玩家y坐标 初始值可以任意
-        //this.moveSpeed = 100; //玩家移动速度 暂时关闭移动动画
         this.allowMove = true;
-        this.f = 1; //玩家所处楼层
+        this.f = 0; //玩家所处楼层
         this.f_arr = [1];  //存储玩家所去过的楼层 初始存入第一层
         this.rank = 1; //玩家等级
         this.health = 1000; //玩家生命
@@ -30,6 +29,7 @@ define(function(require, exports, module){
         this.yellow_key = 10; //玩家拥有的黄钥匙
         this.blue_key = 0; //玩家拥有的蓝钥匙
         this.red_key = 0; //玩家拥有的红钥匙
+        //this.moveSpeed = 100; //玩家移动速度 暂时关闭移动动画
 
         //以下是隐藏的属性
         this.items = {  //玩家拥有的物品

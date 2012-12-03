@@ -22,7 +22,7 @@
                 <li>地图右侧添加了游戏信息面板查看游戏过程中的事件信息。</li>
                 <li><strong>注意：</strong>此次版本尚未添加游戏保存功能，如果刷新页面游戏将会重新开始。</li>
             </ol>
-            <p><input type="text" id="player_name" size="15" value="输入游戏角色名称" onFocus="this.value=this.value=='输入游戏角色名称'?'':this.value" onBlur="this.value=this.value==''?'输入游戏角色名称':this.value">&nbsp;<a href="javascript:gameStart()">开始游戏</a></p>
+            <p><input type="text" id="player_name" size="15" value="输入游戏角色名称" onFocus="this.value=this.value=='输入游戏角色名称'?'':this.value" onBlur="this.value=this.value==''?'输入游戏角色名称':this.value">&nbsp;<a id="startBtn" href="javascript:">开始游戏</a></p>
         </div>
 	</div>
 	<span id="toggle" class="toggle toggle_off"><span class="t_on" title="隐藏辅助面板">&laquo;</span><span class="t_off" title="显示辅助面板">&raquo;</span></span>
@@ -82,63 +82,3 @@
 <script type="text/javascript" src="./js/sea.js" data-main="main"></script>
 </body>
 </html>
-<!--<script type="text/javascript" src="js/jquery-1.6.min.js"></script>
-<script type="text/javascript" src="js/Debug.js"></script>
-<script type="text/javascript" src="js/Dialog.js"></script>
-<script type="text/javascript" src="js/Fighting.js"></script>
-<script type="text/javascript" src="js/Shopping.js"></script>
-<script type="text/javascript" src="js/Object.js"></script>
-<script type="text/javascript" src="js/Items.js"></script>
-<script type="text/javascript" src="js/Map.js"></script>
-<script type="text/javascript" src="js/Event.js"></script>-->
-<script type="text/javascript">
-/*$(function(){
-	//增加图片预加载  优化地图显示速度
-	$.preloadImage(["enemy_01.jpg","enemy_02.jpg","enemy_03.jpg","enemy_04.jpg","enemy_05.jpg","enemy_06.jpg","enemy_07.jpg","enemy_08.jpg","enemy_09.jpg","enemy_10.jpg","enemy_11.jpg","enemy_12.jpg","enemy_13.jpg","enemy_14.jpg","enemy_15.jpg","enemy_16.jpg","enemy_17.jpg","enemy_18.jpg","enemy_19.jpg","enemy_20.jpg","enemy_21.jpg","enemy_22.jpg","enemy_23.jpg","enemy_24.jpg","enemy_25.jpg","enemy_26.jpg","enemy_27.jpg","enemy_28.jpg","enemy_29.jpg","enemy_30.jpg","enemy_31.jpg","item_yellowKey.jpg","item_blueKey.jpg","item_redKey.jpg","item_keyList.jpg","item_blueStone.jpg","item_redStone.jpg","item_bluePotions.jpg","item_redPotions.jpg","item_sword_1.jpg","item_sgh.jpg","item_tiedun.jpg","item_xiaofeiyu.jpg","item_jinbidai.jpg","item_smszj.jpg","item_ssp.jpg","item_fzlp.jpg","item_xgsl.jpg","item_hjd.jpg","shop_left.jpg","shop.jpg","shop_npc.jpg","shop_right.jpg","door_blue.jpg","door_red.jpg","door_gold.jpg","fence.jpg","jack.jpg","princess.jpg","shop_key.jpg","player.png","angle.jpg","fire.jpg","sky.jpg","go_up.jpg","go_down.jpg","door_yellow.jpg"],init);
-})
-
-function init(){
-	$(".welcome").removeClass("loading");
-	$(".chapter").animate({"margin-top":0},20000);
-	$("#toggle").click(function(){
-			toggleDebug();
-		});
-	$(".tab_h span").click(function(){
-			var index = $(this).index();
-			$(this).addClass("current").siblings().removeClass("current");
-			$(".tab_c").hide().eq(index).show();
-		});
-}
-
-function gameStart(){
-	$(".welcome").slideUp(500,function(){
-		var name = $.trim($("#player_name").val());
-		if(name != "输入游戏角色名称")
-			_Player.name = name;
-		
-		//console.time("装载地图")
-		_Map_Init(1);
-		//console.timeEnd("装载地图")
-		
-		_T = new Timer();
-		_T.run(); //开始计时
-		_Debug.log("游戏开始了...");
-		
-		$(document).bind("keyup",_Player_Move);
-		
-		toggleDebug();
-		
-		$(this).remove();
-	})
-}
-jQuery.preloadImage=function(images,callback){
-	//console.log(arguments[0].length)
-	for(var i=0; i<arguments[0].length; i++){
-		$("<img/>").attr("src","image/"+arguments[0][i]).load(function(){
-			//console.log($(this).attr("src")+" hasbeen loaded");
-		});
-	}
-	if(callback)
-		callback();
-}*/
-</script>

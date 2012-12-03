@@ -298,7 +298,245 @@ define(function(require, exports, module){
                     "jiangli" : null
                 }
             }
+        },
+
+        monster : {
+            "enemy_01" : { "values" : { "health" : 50, "attack" : 20, "defense" : 1}, "CH_name" : "绿头怪", "win" : { "money" : 1, "expe" : 1 } } ,
+            "enemy_02" : { "values" : { "health" : 70, "attack" : 15, "defense" : 2}, "CH_name" : "红头怪", "win" : { "money" : 2, "expe" : 2 } } ,
+            "enemy_03" : { "values" : { "health" : 100, "attack" : 20, "defense" : 5}, "CH_name" : "小蝙蝠", "win" : { "money" : 3, "expe" : 3 } } ,
+            "enemy_04" : { "values" : { "health" : 110, "attack" : 25, "defense" : 5}, "CH_name" : "骷髅人", "win" : { "money" : 5, "expe" : 4 } } ,
+            "enemy_05" : { "values" : { "health" : 200, "attack" : 35, "defense" : 10}, "CH_name" : "青头怪", "win" : { "money" : 5, "expe" : 5 } } ,
+            "enemy_06" : { "values" : { "health" : 150, "attack" : 40, "defense" : 20}, "CH_name" : "骷髅士兵", "win" : { "money" : 8, "expe" : 6 } } ,
+            "enemy_07" : { "values" : { "health" : 125, "attack" : 50, "defense" : 25}, "CH_name" : "初级法师", "win" : { "money" : 10, "expe" : 7 } } ,
+            "enemy_08" : { "values" : { "health" : 150, "attack" : 65, "defense" : 30}, "CH_name" : "大蝙蝠", "win" : { "money" : 10, "expe" : 8 } } ,
+            "enemy_09" : { "values" : { "health" : 300, "attack" : 75, "defense" : 45}, "CH_name" : "兽面人", "win" : { "money" : 13, "expe" : 10 } } ,
+            "enemy_10" : { "values" : { "health" : 400, "attack" : 90, "defense" : 50}, "CH_name" : "骷髅队长", "win" : { "money" : 15, "expe" : 12 } } ,
+            "enemy_11" : { "values" : { "health" : 500, "attack" : 115, "defense" : 65}, "CH_name" : "石头怪人", "win" : { "money" : 15, "expe" : 15 } } ,
+            "enemy_12" : { "values" : { "health" : 250, "attack" : 120, "defense" : 70}, "CH_name" : "麻衣法师", "win" : { "money" : 20, "expe" : 17 } } ,
+            "enemy_13" : { "values" : { "health" : 450, "attack" : 150, "defense" : 90}, "CH_name" : "初级卫兵", "win" : { "money" : 22, "expe" : 19 } } ,
+            "enemy_14" : { "values" : { "health" : 550, "attack" : 160, "defense" : 90}, "CH_name" : "红蝙蝠", "win" : { "money" : 25, "expe" : 20 } } ,
+            "enemy_15" : { "values" : { "health" : 100, "attack" : 200, "defense" : 110}, "CH_name" : "高级法师", "win" : { "money" : 30, "expe" : 25 } } ,
+            "enemy_16" : { "values" : { "health" : 700, "attack" : 250, "defense" : 125}, "CH_name" : "怪王", "win" : { "money" : 32, "expe" : 30 } } ,
+            "enemy_17" : { "values" : { "health" : 1300, "attack" : 300, "defense" : 150}, "CH_name" : "白衣武士", "win" : { "money" : 40, "expe" : 35 } } ,
+            "enemy_18" : { "values" : { "health" : 850, "attack" : 350, "defense" : 200}, "CH_name" : "金卫士", "win" : { "money" : 45, "expe" : 40 } } ,
+            "enemy_19" : { "values" : { "health" : 500, "attack" : 400, "defense" : 260}, "CH_name" : "红衣法师", "win" : { "money" : 47, "expe" : 45 } } ,
+            "enemy_20" : { "values" : { "health" : 900, "attack" : 450, "defense" : 330}, "CH_name" : "兽面武士", "win" : { "money" : 50, "expe" : 50 } } ,
+            "enemy_21" : { "values" : { "health" : 1250, "attack" : 500, "defense" : 400}, "CH_name" : "冥卫兵", "win" : { "money" : 55, "expe" : 55 } } ,
+            "enemy_22" : { "values" : { "health" : 1500, "attack" : 560, "defense" : 460}, "CH_name" : "高级卫兵", "win" : { "money" : 60, "expe" : 60 } } ,
+            "enemy_23" : { "values" : { "health" : 1200, "attack" : 620, "defense" : 520}, "CH_name" : "双手剑士", "win" : { "money" : 65, "expe" : 75 } } ,
+            "enemy_24" : { "values" : { "health" : 2000, "attack" : 680, "defense" : 590}, "CH_name" : "冥战士", "win" : { "money" : 70, "expe" : 65 } } ,
+            "enemy_25" : { "values" : { "health" : 900, "attack" : 750, "defense" : 650}, "CH_name" : "金队长", "win" : { "money" : 77, "expe" : 70 } } ,
+            "enemy_26" : { "values" : { "health" : 1500, "attack" : 830, "defense" : 730}, "CH_name" : "灵法师", "win" : { "money" : 80, "expe" : 70 } } ,
+            "enemy_27" : { "values" : { "health" : 2500, "attack" : 900, "defense" : 850}, "CH_name" : "冥队长", "win" : { "money" : 84, "expe" : 75 } } ,
+            "enemy_28" : { "values" : { "health" : 1200, "attack" : 980, "defense" : 900}, "CH_name" : "灵武士", "win" : { "money" : 88, "expe" : 75 } } ,
+            "enemy_29" : { "values" : { "health" : 3100, "attack" : 1150, "defense" : 1050}, "CH_name" : "影子战士", "win" : { "money" : 92, "expe" : 80 } } ,
+            "enemy_30" : { "values" : { "health" : 15000, "attack" : 1000, "defense" : 1000}, "CH_name" : "红衣魔王", "win" : { "money" : 100, "expe" : 100 } } ,
+            "enemy_31" : { "values" : { "health" : 30000, "attack" : 1700, "defense" : 1500}, "CH_name" : "冥灵魔王", "win" : { "money" : 250, "expe" : 220 } } ,
+            "enemy_32" : { "values" : { "health" : 99999, "attack" : 5000, "defense" : 4000}, "CH_name" : "血影", "win" : { "money" : 0, "expe" : 0 } } ,
+            "enemy_33" : { "values" : { "health" : 99999, "attack" : 9999, "defense" : 5000}, "CH_name" : "魔龙", "win" : { "money" : 0, "expe" : 0 } }
+        },
+
+        item : {
+            "yellow_door" : {
+                "need" : "yellow_key",
+                "values" : {
+                    "yellow_key" : -1
+                },
+                "CH_name" : "黄门"
+            },
+            "blue_door" : {
+                "need" : "blue_key",
+                "values" : {
+                    "blue_key" : -1
+                },
+                "CH_name" : "蓝门"
+            },
+            "red_door" : {
+                "need" : "red_key",
+                "values" : {
+                    "red_key" : -1
+                },
+                "CH_name" : "红门"
+            },
+            "fence" : {
+                "need" : null,
+                "values" : null,
+                "CH_name" : "栅栏"
+            },
+            "yellow_key" : {
+                "values" : {
+                    "yellow_key" : 1
+                },
+                "CH_name" : "黄钥匙"
+            },
+            "blue_key" : {
+                "values" : {
+                    "blue_key" : 1
+                },
+                "CH_name" : "蓝钥匙"
+            },
+            "red_key" : {
+                "values" : {
+                    "red_key" : 1
+                },
+                "CH_name" : "红钥匙"
+            },
+            "keyList" : {
+                "values" : {
+                    "yellow_key" : 1,
+                    "blue_key" : 1,
+                    "red_key" : 1
+                },
+                "CH_name" : "钥匙链"
+            },
+            "blue_stone" : {
+                "values" : {
+                    "defense" : 3
+                },
+                "CH_name" : "蓝宝石"
+            },
+            "red_stone" : {
+                "values" : {
+                    "attack" : 3
+                },
+                "CH_name" : "红宝石"
+            },
+            "red_potions" : {
+                "values" : {
+                    "health" : 200
+                },
+                "CH_name" : "小血瓶"
+            },
+            "blue_potions" : {
+                "values" : {
+                    "health" : 500
+                },
+                "CH_name" : "大血瓶"
+            },
+            "sword_1" : {
+                "values" : {
+                    "attack" : 10
+                },
+                "CH_name" : "铁剑"
+            },
+            "sword_2" : {
+                "values" : {
+                    "attack" : 70
+                },
+                "CH_name" : "青锋剑"
+            },
+            "sgh" : {
+                "values" : "item",
+                "name" : "sgh",
+                "CH_name" : "圣光徽"
+            },
+            "fzlp" : {
+                "values" : "item",
+                "name" : "fzlp",
+                "CH_name" : "风之罗盘"
+            },
+            "smszj" : {
+                "values" : "item",
+                "name" : "smszj",
+                "CH_name" : "圣母十字架"
+            },
+            "xgsl" : {
+                "values" : "item",
+                "name" : "xgsl",
+                "CH_name" : "星光神锒"
+            },
+            "tiedun" : {
+                "values" : {
+                    "defense" : 10
+                },
+                "CH_name" : "铁盾"
+            },
+            "hjd" : {
+                "values" : {
+                    "defense" : 85
+                },
+                "CH_name" : "黄金盾"
+            },
+            "xiaofeiyu" : {
+                "values" : {
+                    "rank" : 1,
+                    "health" : 1000,
+                    "attack" : 10,
+                    "defense" : 10
+                },
+                "CH_name" : "小飞羽"
+            },
+            "dafeiyu" : {
+                "values" : {
+                    "rank" : 3,
+                    "health" : 3000,
+                    "attack" : 30,
+                    "defense" : 30
+                },
+                "CH_name" : "大飞羽"
+            },
+            "jinbidai" : {
+                "values" : {
+                    "money" : 300
+                },
+                "CH_name" : "金币袋"
+            },
+            "ssp" : {
+                "values" : {
+                    "health" : 2  //生命值翻倍
+                },
+                "CH_name" : "圣水瓶"
+            }
+        },
+
+        map : {
+            "updata_player_position" : [
+                {},
+                { "go_up" : {x : 5 , y : 1} },
+                { "go_up" : {x : 1 , y : 0}, "go_down" : {x : 5 , y : 9} },
+                { "go_up" : {x : 0 , y : 9}, "go_down" : {x : 0 , y : 1} },
+                { "go_up" : {x : 10 , y : 9}, "go_down" : {x : 1 , y : 10} },
+                { "go_up" : {x : 0 , y : 9}, "go_down" : {x : 10 , y : 9} },  //5层
+                { "go_up" : {x : 9 , y : 9}, "go_down" : {x : 1 , y : 10} },
+                { "go_up" : {x : 5 , y : 10}, "go_down" : {x : 9 , y : 9} },
+                { "go_up" : {x : 1 , y : 0}, "go_down" : {x : 5 , y : 10} },
+                { "go_up" : {x : 7 , y : 4}, "go_down" : {x : 0 , y : 1} },
+                { "go_up" : {x : 6 , y : 7}, "go_down" : {x : 6 , y : 3} },   //10层
+                { "go_up" : {x : 0 , y : 9}, "go_down" : {x : 4 , y : 6} },
+                { "go_up" : {x : 9 , y : 10}, "go_down" : {x : 1 , y : 10} },
+                { "go_up" : {x : 1 , y : 10}, "go_down" : {x : 9 , y : 10} },
+                { "go_up" : {x : 4 , y : 10}, "go_down" : {x : 1 , y : 10} },
+                { "go_up" : {x : 5 , y : 0}, "go_down" : {x : 5 , y : 9} },   //15层
+                { "go_up" : {x : 7 , y : 0}, "go_down" : {x : 3 , y : 0} },
+                { "go_up" : {x : 5 , y : 6}, "go_down" : {x : 5 , y : 0} },
+                { "go_up" : {x : 1 , y : 10}, "go_down" : {x : 5 , y : 8} },
+                { "go_up" : {x : 9 , y : 10}, "go_down" : {x : 1 , y : 10} },
+                { "go_up" : {x : 5 , y : 4}, "go_down" : {x : 9 , y : 10} },  //20层
+                { "go_up" : {x : 6 , y : 7}, "go_down" : {x : 6 , y : 3} },
+                { "go_up" : {x : 5 , y : 4}, "go_down" : {x : 5 , y : 5} }
+            ],
+            "floor_1" : [],
+            "floor_2" : [],
+            "floor_3" : [],
+            "floor_4" : [],
+            "floor_5" : [],
+            "floor_6" : [],
+            "floor_7" : [],
+            "floor_8" : [],
+            "floor_9" : [],
+            "floor_10" : [],
+            "floor_11" : [],
+            "floor_12" : [],
+            "floor_13" : [],
+            "floor_14" : [],
+            "floor_15" : [],
+            "floor_16" : [],
+            "floor_17" : [],
+            "floor_18" : [],
+            "floor_19" : [],
+            "floor_20" : [],
+            "floor_21" : [],
+            "floor_22" : []
         }
     };
-
 });

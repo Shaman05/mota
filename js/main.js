@@ -4,6 +4,8 @@
  * Date: 12-12-2
  * Time: 下午10:17
  * To change this template use File | Settings | File Templates.
+ *
+ * 游戏入口
  */
 
 seajs.config({
@@ -12,5 +14,5 @@ seajs.config({
 });
 
 seajs.use('init', function(game){
-    game.start();
+    game.init();
 });
