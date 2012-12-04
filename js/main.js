@@ -9,8 +9,11 @@
  */
 
 seajs.config({
-    preload : ['jquery-1.6.min']
-    //,debug : 2
+    preload : ['jquery-1.6.min'],
+    map : [
+    	['.js', '.js?v=1.1']
+    ],
+    debug : false
 });
 
 seajs.use('init', function(game){
