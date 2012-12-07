@@ -23,6 +23,13 @@ define(function(require, exports, module){
         this.id = id || this.name;
         this.option = option;
         this.type = "npc";
+        this.objCode = (function(){
+            var map = mota.data._map;
+            for(var code in map){
+                if(name === map[code])return code;
+            }
+            return null;
+        })();
     }
 
     Npc.stack = [];

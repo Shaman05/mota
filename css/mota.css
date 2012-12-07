@@ -110,10 +110,10 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .go_up{background:url(../image/go_up.jpg) no-repeat 0 0}
 .go_down{background:url(../image/go_down.jpg) no-repeat 0 0}
 .door-blue_door{background:url(../image/door_blue.jpg) no-repeat 0 0}
-.door-yellow_door{background:url(../image/door_yellow.jpg) no-repeat 0 0}
-.door-red_door{background:url(../image/door_red.jpg) no-repeat 0 0}
-.door_gold{background:url(../image/door_gold.jpg) no-repeat 0 0}
-.door-fence{background:url(../image/fence.jpg) no-repeat 0 0}
+.yellow_door{background:url(../image/door_yellow.jpg) no-repeat 0 0}
+.red_door{background:url(../image/door_red.jpg) no-repeat 0 0}
+.gold_door{background:url(../image/door_gold.jpg) no-repeat 0 0}
+.fence_door{background:url(../image/fence.jpg) no-repeat 0 0}
 
 /*NPC*/
 .angle{background:url(../image/angle.jpg) no-repeat 0 0}

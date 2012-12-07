@@ -45,10 +45,10 @@ define(function(require, exports, module){
         move : function(direct){
             this.direct = direct;
             if(this.allowMove){
-                var player = $("#"+this.name),
+                var player = $("#" + this.name),
                     cssDirect = null,
                     cssStep = null;
-                player.attr("class","player_"+direct);
+                player.attr("class","player_" + direct);
                 var _left = parseInt(player.css("left")),
                     _top = parseInt(player.css("top"));
                 if(direct == "left"){
@@ -75,7 +75,7 @@ define(function(require, exports, module){
                     y = _top/32,
                     s = this.moveStatus(x,y);
                 if(s.canMove){
-                    player.css(cssDirect , cssStep+"px");
+                    player.css(cssDirect , cssStep + "px");
                     this.setPosition(x,y);
                 }else{
                     this.action(s.obj);
@@ -84,11 +84,12 @@ define(function(require, exports, module){
         },
         moveStatus : function(x , y){
             var x = x,
-                y = y,
-                floor_f = _Map["floor_"+this.f];
-            if(x>=0 && x<=10 && y>=0 && y<=10){
-                var o = floor_f[y][x];
-                if(o == null || o.name == _Player.name) //无障碍和玩家位置
+                y = y;
+            if(x >= 0 && x <= 10 && y >= 0 && y <= 10){
+                var objCode = mota.data.map["floor_" + this.f][y][x];  //获取到地图对象代号
+                var o = mota[mota.data._map[objCode]];  //通过代号映射获取到真实对象
+                console.log(o);
+                if(o == null || o.name == mota.player.name) //无障碍和玩家位置
                     return { canMove : true }
                 if(o.type == "barrier") //墙、火、星空等其他障碍物
                     return { canMove : false , obj : "limit" }
@@ -103,7 +104,7 @@ define(function(require, exports, module){
                 var name = o.name,
                     type = o.type;
                 if(type == "npc"){  //NPC
-                    EventDialog(o,_Player);
+                    mota.event.EventDialog(o,mota.player);
                 }else if(name == "go_up" || name == "go_down"){  //上下楼梯
                     EventStairs(name,_Player);
                 }else if(type == "enemy"){  //遇到怪物

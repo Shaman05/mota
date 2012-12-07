@@ -25,7 +25,7 @@ define(function(require, exports, module){
             _Player.f = f;
             for(var i = 0, len = floor_f.length; i < len; i++)
                 for(var j = 0, _len = floor_f[i].length; j < _len; j++){
-                    var o = floor_f[i][j];
+                    var o = mota[mota.data._map[floor_f[i][j]]];
                     if(!!o){
                         var id = o.name == _Player.name ? _Player.name :
                                 o.id ? o.id : "",

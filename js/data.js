@@ -515,7 +515,19 @@ define(function(require, exports, module){
                 { "go_up" : {x : 6 , y : 7}, "go_down" : {x : 6 , y : 3} },
                 { "go_up" : {x : 5 , y : 4}, "go_down" : {x : 5 , y : 5} }
             ],
-            "floor_1" : [],
+            "floor_1" : [
+                [102 , 104 , 104 , 104 , 104 , 108 , 104 , 104 , 104 , 104 , 102],
+                [102 , 104 , 104 , 104 , 104 ,     , 104 , 104 , 104 , 104 , 102],
+                [102 , 104 , 104 , 104 , 104 ,     , 104 , 104 , 104 , 104 , 102],
+                [102 , 104 , 104 , 104 , 104 ,     , 104 , 104 , 104 , 104 , 102],
+                [102 , 104 , 104 , 104 , 104 ,     , 104 , 104 , 104 , 104 , 102],
+                [102 , 104 , 104 , 104 , 104 ,     , 104 , 104 , 104 , 104 , 102],
+                [102 , 102 , 104 , 104 , 104 ,     , 104 , 104 , 104 , 102 , 102],
+                [102 , 102 , 102 , 102 , 102 , 123 , 102 , 102 , 102 , 102 , 102],
+                [103 , 102 , 103 , 102 ,     , 110 ,     , 102 , 103 , 102 , 103],
+                [103 , 103 , 103 , 103 , 103 ,     , 103 , 103 , 103 , 103 , 103],
+                [103 , 103 , 103 , 103 , 103 , 101 , 103 , 103 , 103 , 103 , 103]
+            ],
             "floor_2" : [],
             "floor_3" : [],
             "floor_4" : [],
@@ -537,6 +549,129 @@ define(function(require, exports, module){
             "floor_20" : [],
             "floor_21" : [],
             "floor_22" : []
+        },
+
+        //地图上对象代号
+        _map : {
+            100 : null,  //空位
+            101 : "player",  //玩家
+            102 : "_Wall",  //墙壁
+            103 : "_Fire",  //火堆
+            104 : "_Sky",  //星空
+            105 : "gold_door",  //黄金门
+            106 : "_Shop_left",  //商店左墙壁
+            107 : "_Shop_right",  //商店右墙壁
+            108 : "_Up_stairs",  //向上楼梯
+            109 : "_Down_stairs",  //向下楼梯
+            110 : 'angle',  //仙子
+            111 : 'shop_m_l',  //低级商店（金币购物）
+            112 : 'shop_m_h',  //高级商店（金币购物）
+            113 : 'shop_e_l',  //低级商店（经验购物）
+            114 : 'shop_e_h',  //高级商店（经验购物）
+            115 : 'shop_key_sell',  //买钥匙的
+            116 : 'shop_key_buy',  //卖钥匙的
+            117 : 'jack',  //小偷杰克
+            118 : 'smlr_03',  //第三层的神秘老人
+            119 : 'sr_03',  //第三层的商人
+            120 : 'smlr_16',  //第十六层的神秘老人
+            121 : 'sr_16',  //第十六层的商人
+            122 : 'princess',  //公主
+            123 : 'yellow_door',  //黄门
+            124 : 'blue_door',  //蓝门
+            125 : 'red_door',  //红门
+            126 : 'fence',  //栅栏
+            127 : 'yellow_key',  //黄钥匙
+            128 : 'blue_key',  //蓝钥匙
+            129 : 'red_key',  //红钥匙
+            130 : 'keyList',  //钥匙链
+            131 : 'blue_stone',
+            132 : 'red_stone',
+            133 : 'red_potions',
+            134 : 'blue_potions',
+            135 : 'sword_1',
+            136 : 'sword_2',
+            137 : 'sgh',
+            138 : 'fzlp',
+            139 : 'smszj',
+            140 : 'xgsl',
+            141 : 'tiedun',
+            142 : 'hjd',
+            143 : 'xiaofeiyu',
+            144 : 'dafeiyu',
+            145 : 'jinbidai',
+            146 : 'ssp',
+            147 : 'enemy_01',
+            148 : 'enemy_02',
+            149 : 'enemy_03',
+            150 : 'enemy_04',
+            151 : 'enemy_05',
+            152 : 'enemy_06',
+            153 : 'enemy_07',
+            154 : 'enemy_08',
+            155 : 'enemy_09',
+            156 : 'enemy_10',
+            157 : 'enemy_11',
+            158 : 'enemy_12',
+            159 : 'enemy_13',
+            160 : 'enemy_14',
+            161 : 'enemy_15',
+            162 : 'enemy_16',
+            163 : 'enemy_17',
+            164 : 'enemy_18',
+            165 : 'enemy_19',
+            166 : 'enemy_20',
+            167 : 'enemy_21',
+            168 : 'enemy_22',
+            169 : 'enemy_23',
+            170 : 'enemy_24',
+            171 : 'enemy_25',
+            172 : 'enemy_26',
+            173 : 'enemy_27',
+            174 : 'enemy_28',
+            175 : 'enemy_29',
+            176 : 'enemy_30',
+            177 : 'enemy_31',
+            178 : 'enemy_32',
+            179 : 'enemy_33'
+        },
+        //初始对话索引
+        dialog_index : {
+            "angle" : {
+                "dialog_index" : 1
+            },
+            "shop_m_l" : {
+                "dialog_index" : 1
+            },
+            "shop_m_h" : {
+                "dialog_index" : 1
+            },
+            "shop_key_sell" : {
+                "dialog_index" : 1
+            },
+            "shop_key_buy" : {
+                "dialog_index" : 1
+            },
+            "smlr_03" : {
+                "dialog_index" : 1
+            },
+            "sr_03" : {
+                "dialog_index" : 1
+            },
+            "smlr_16" : {
+                "dialog_index" : 1
+            },
+            "sr_16" : {
+                "dialog_index" : 1
+            },
+            "jack" : {
+                "dialog_index" : 1
+            },
+            "shop_e_l" : {
+                "dialog_index" : 1
+            },
+            "shop_e_h" : {
+                "dialog_index" : 1
+            }
         }
     };
 });

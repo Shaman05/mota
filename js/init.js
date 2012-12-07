@@ -11,9 +11,15 @@
 define(function(require, exports, modules){
     var util = require('util');
     var data = require('data');
+    var Debug = require('Debug');
+    var Event = require('Event');
 
     util.namespace('mota');
     mota.data = data;
+    mota._Debug = Debug;
+    mota._T = new Debug.Timer();
+    mota.event = Event;
+
 
     var Player = require('Player');
     var Barrier = require('Barrier').Barrier;
@@ -22,6 +28,7 @@ define(function(require, exports, modules){
     var Monster = require('Monster');
     var Item = require('Item');
     var Map = require('Map');
+
 
     modules.exports = {
         init : function(){
@@ -52,12 +59,12 @@ define(function(require, exports, modules){
 
             function init(){
                 $(".welcome").removeClass("loading");
-                $(".chapter").animate({"margin-top":0},5000);
+                $(".chapter").animate({"margin-top":0},1000);
                 $("#startBtn").click(function(){
-                    gameStart()
+                    gameStart();
                 });
                 $("#toggle").click(function(){
-                    toggleDebug();
+                    util.$toggleDebug();
                 });
                 $(".tab_h span").click(function(){
                     var index = $(this).index();
@@ -70,22 +77,20 @@ define(function(require, exports, modules){
             function gameStart(){
                 $(".welcome").slideUp(500,function(){
                     var name = $.trim($("#player_name").val());
-                    if(name != "输入游戏角色名称")
-                        mota.player.name = name;
+                    mota.player.name = name != "输入游戏角色名称" ? name : "勇士";
 
-                    //console.time("装载地图")
+                    //console.time("装载地图");
                     _this.mapInit(1);
-                    //console.timeEnd("装载地图")
+                    //console.timeEnd("装载地图");
 
-                    /*_T = new Timer();
-                    _T.run(); //开始计时
-                    _Debug.log("游戏开始了...");
 
-                    $(document).bind("keyup",_Player_Move);
+                    mota._T.run(); //开始计时
+                    mota._Debug.log("游戏开始了...");
 
-                    toggleDebug();*/
+                    $(document).bind("keyup", Event._Player_Move);
 
                     $(this).remove();
+                    util.$toggleDebug();
                 })
             }
             jQuery.preloadImage=function(images,callback){
@@ -104,36 +109,36 @@ define(function(require, exports, modules){
             mota.player = new Player(playerName);
         },
         createBarrier : function(){
-            mota.barrier = {};
-            mota.barrier._Wall = new Barrier("wall");  //墙壁
-            mota.barrier._Fire = new Barrier("fire");  //火堆
-            mota.barrier._Sky = new Barrier("sky");  //星空
-            mota.barrier._Door_gold = new Barrier("door_gold");  //黄金门
-            mota.barrier._Shop_left = new Barrier("shop_left");  //商店左墙壁
-            mota.barrier._Shop_right = new Barrier("shop_right");  //商店右墙壁
-            mota.barrier._Up_stairs =  new Stair("go_up");  //向上楼梯
-            mota.barrier._Down_stairs =  new Stair("go_down");  //向下楼梯
+            //mota.barrier = {};
+            mota._Wall = new Barrier("wall");
+            mota._Fire = new Barrier("fire");
+            mota._Sky = new Barrier("sky");
+            mota._Door_gold = new Barrier("door_gold");
+            mota._Shop_left = new Barrier("shop_left");
+            mota._Shop_right = new Barrier("shop_right");
+            mota._Up_stairs =  new Stair("go_up");
+            mota._Down_stairs =  new Stair("go_down");
         },
         createNpcs : function(){
             mota.npcs = [
-                'angle',  //仙子
-                'shop_m_l',  //低级商店（金币购物）
-                'shop_m_h',  //高级商店（金币购物）
-                'shop_e_l',  //低级商店（经验购物）
-                'shop_e_h',  //高级商店（经验购物）
-                'shop_key_sell',  //买钥匙的
-                'shop_key_buy',  //卖钥匙的
-                'jack',  //小偷杰克
-                'smlr_03',  //第三层的神秘老人
-                'sr_03',  //第三层的商人
-                'smlr_16',  //第十六层的神秘老人
-                'sr_16',  //第十六层的商人
-                'princess'  //公主
+                'angle',
+                'shop_m_l',
+                'shop_m_h',
+                'shop_e_l',
+                'shop_e_h',
+                'shop_key_sell',
+                'shop_key_buy',
+                'jack',
+                'smlr_03',
+                'sr_03',
+                'smlr_16',
+                'sr_16',
+                'princess'
             ];
-            mota.npc = {};
+            //mota.npc = {};
             for(var i = 0, len = mota.npcs.length; i < len; i++){
                 var _npc = mota.npcs[i];
-                mota.npc[_npc] = new Npc(_npc, data.dialog[_npc]);
+                mota[_npc] = new Npc(_npc, data.dialog[_npc]);
             }
         },
         createEnemy : function(){
@@ -145,10 +150,10 @@ define(function(require, exports, modules){
                 'enemy_25','enemy_26','enemy_27','enemy_28','enemy_29','enemy_30',
                 'enemy_31','enemy_32','enemy_33'
             ];
-            mota.moster = {};
+            //mota.moster = {};
             for(var i = 0, len = mota.mosters.length; i < len; i++){
                 var _moster = mota.mosters[i];
-                mota.moster[_moster] = new Monster(_moster, data.monster[_moster]);
+                mota[_moster] = new Monster(_moster, data.monster[_moster]);
             }
         },
         createItems : function(){
@@ -158,10 +163,10 @@ define(function(require, exports, modules){
                 'sword_1','sword_2','sgh','fzlp','smszj','xgsl',
                 'tiedun','hjd','xiaofeiyu','dafeiyu','jinbidai','ssp'
             ];
-            mota.item = {};
+            //mota.item = {};
             for(var i = 0, len = mota.items.length; i < len; i++){
                 var _item = mota.items[i];
-                mota.item[_item] = new Item(_item, data.item[_item]);
+                mota[_item] = new Item(_item, data.item[_item]);
             }
         },
 

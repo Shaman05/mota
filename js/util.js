@@ -86,6 +86,11 @@ define(function(require, exports, module){
          */
         $showError : function(msg){
             console.log(msg);
+        },
+
+        $toggleDebug : function(){
+            $("#toggle").toggleClass("toggle_off");
+            $(".debug").slideToggle(200);
         }
 
     };

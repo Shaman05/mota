@@ -14,7 +14,7 @@ var _Wall = new Barrier("wall"),
 	_Door_gold = new Barrier("door_gold"),
 	_Shop_left = new Barrier("shop_left"),
 	_Shop_right = new Barrier("shop_right");
-	
+
 //楼梯：
 var _Up_stairs =  new Stairs("go_up"),
 	_Down_stairs =  new Stairs("go_down");
@@ -97,7 +97,7 @@ var enemy_01 = new Monster("enemy_01"),
 	enemy_32 = new Monster("enemy_32"),
 	enemy_33 = new Monster("enemy_33");
 
-/*******************************  
+/*******************************
 	地图：
 	每层地图通过一个二维数组来创建地图
 	[ ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
