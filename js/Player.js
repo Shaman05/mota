@@ -110,19 +110,7 @@ define(function(require, exports, module){
                         break;
                     case "item":
                         this.changePosition(this.direct);
-                        if(name == "item-ssp"){  //圣水瓶
-                            this.health += this.health;
-                            mota._Debug.log("你获得了物品："+"<em>【"+o.options.CH_name+"】</em> 生命值翻倍！" ,true);
-                            this.refreshData();
-                        }else{
-                            this.addPrototype(o);
-                        }
-
-                        var n = o.options.CH_name;
-                        if(n == "圣光徽")
-                            Dialog.showMessage("你拿到了圣光徽，该宝物可以允许你查看怪物属性，并计算出你打败怪物所损耗的生命值。现在可以按 '<span class='shopKey'>L</span>' 键查看怪物属性。");
-                        if(n == "风之罗盘")
-                            Dialog.showMessage("你拿到了风之罗盘，该宝物可以使你在走过的楼层间自由穿梭。现在可以按 '<span class='shopKey'>J</span>' 键，选择你要去的楼层。");
+                        this.addPrototype(o);
                         o.remove();
                         break;
                     case "door":
@@ -201,8 +189,10 @@ define(function(require, exports, module){
         },
         addPrototype : function(o){
             var prototype = mota.data[o.type][o.name]["values"];
-            if(prototype == "item"){  //此条件尚未完成
-                this.items[mota.data.item[type]["name"]] = true;
+            if(prototype == "item"){
+                this.items[o["name"]] = true;
+            }else if(o.name == "ssp"){  //特殊物品： 圣水瓶
+                this.health *= 2;
             }else{
                 for(var pro in prototype){
                     this[pro] += prototype[pro];
@@ -211,11 +201,12 @@ define(function(require, exports, module){
             this.refreshData();
         },
         clone : function(option){
-            var o = {};
+            /*var o = {};
             for(var pro in option){
                 o[pro] = option[pro];
             }
-            return o;
+            return o;*/
+            return new Player(this.name);
         },
         refreshData : function(){
             $("#floor_index").text(this.f);

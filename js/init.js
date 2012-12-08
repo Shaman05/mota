@@ -13,12 +13,16 @@ define(function(require, exports, modules){
     var data = require('data');
     var Debug = require('Debug');
     var Event = require('Event');
+    var Dialog = require('Dialog');
+    var Fighting = require('Fighting');
 
     util.namespace('mota');
     mota.data = data;
     mota._Debug = Debug;
     mota._T = new Debug.Timer();
     mota.event = Event;
+    mota.dialog = new Dialog();
+    mota.fighting = new Fighting();
 
 
     var Player = require('Player');

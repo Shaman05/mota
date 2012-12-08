@@ -12,16 +12,19 @@ define(function(require, exports, module){
 
     module.exports = Dialog;
 
-    function Dialog(o , p){
+    function Dialog(){
+        this.o = null;
+        this.p = mota.player || null;
+        this.$_obj = null;
         this.box = $("#pop_wrap");
-        this.obj = o;
-        this.$_obj = $("#"+o.id);
-        this.player = p;
         this.sindex = 0;  //对话序列索引
     }
 
     Dialog.prototype = {
-        start : function(){
+        start : function(o , p){
+            this.obj = o;
+            this.player = p;
+            this.$_obj = $("#" + o.id);
             mota.player.allowMove = false ;
             var i = mota.data.dialog_index[this.obj.id]["dialog_index"],
                 direct = this.obj.option["dialog_direct"];
@@ -131,6 +134,73 @@ define(function(require, exports, module){
                     '</div>';
             }
             this.box.html(dialog_box);
+        },
+        showMessage : function(msg){
+            var html = '<div class="dialog_box" style="margin-top:142px">' +
+                           '<div class="showMessage">' +
+                               '<strong>' + msg + '</strong>' +
+                           '<div>' +
+                           '<div class="continue">按空格键继续...</div>' +
+                       '</div>';
+            $(html).appendTo(this.box);
+            $(document).unbind().bind("keyup",mota.event.showMessage_close);
+        },
+        viewEnemyInit : function(f){
+            //获取到所有敌人
+            var enemyArr = [],
+                tmp = mota.map.floorData[f];
+            for(var i = 0, len = tmp.length; i < len; i++)
+                for(var j = 0, _len = tmp[i].length; j < _len; j++){
+                    if(!!tmp[i][j] && !!tmp[i][j].type && tmp[i][j].type == "enemy")
+                        enemyArr.push(tmp[i][j])
+                }
+            //将重复敌人删除
+            var temp = [];
+            if(enemyArr.length > 0)temp[0] = enemyArr[0];
+            for(var i=0; i<enemyArr.length; i++){
+                var flag = false;
+                for(var k=0; k<temp.length; k++)
+                    if(enemyArr[i] == temp[k])
+                        flag = true;
+                if(!flag)
+                    temp.push(enemyArr[i])
+            }
+            //如果当前层有敌人 则可以查看
+            if(temp.length > 0)this.viewEnemyPrototype(temp);
+        },
+        viewEnemyPrototype : function(arr){
+            //查找出每种敌人的属性
+            var tr = "";
+            for(var i = 0, len = arr.length; i < len; i++){
+                var result = mota.fighting.fightingTest(arr[i], mota.player);
+                var loss = result.loss;
+                var name = arr[i].name;
+                var enemyData = mota.data.monster[name];
+                tr += '<tr>' +
+                    '<td><div class="block ' + name + '"></div></td>' +
+                    '<td>' + enemyData["values"].health + '</td>' +
+                    '<td>' + enemyData["values"].attack + '</td>' +
+                    '<td>' + enemyData["values"].defense + '</td>' +
+                    '<td>' + enemyData["win"].money + '</td>' +
+                    '<td>' + enemyData["win"].expe + '</td>' +
+                    '<td>' + loss + '</td>' +
+                '</tr>';
+            }
+            var html = '<div class="dialog_box">' +
+                '<div class="viewEnemyPrototype">' +
+                    '<div class="enemyTable">' +
+                        '<table width="100%">' +
+                            '<tr>' +
+                            '<th>怪物名称</th>' + '<th>生命</th>' + '<th>攻击</th>' + '<th>防御</th>' + '<th>金钱</th>' + '<th>经验</th>' + '<th>损失</th>' +
+                            '</tr>' +
+                            tr +
+                        '</table>' +
+                    '</div>' +
+                '<div>' +
+                '<div class="continue">按空格键继续...</div>' +
+            '</div>';
+            $(html).appendTo(this.box);
+            $(document).unbind().bind("keyup", mota.event.showMessage_close);
         }
     }
 

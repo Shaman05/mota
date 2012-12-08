@@ -25,16 +25,16 @@ define(function(require, exports, module){
                 _Player.move("up")
             }else if(kv == 40){  //向下
                 _Player.move("down")
-            }/*else if(kv == 76 ){ //查看怪物属性
+            }else if(kv == 76 ){ //查看怪物属性
                 if(_Player.items.sgh)  //必须要有圣光徽
-                    Dialog.viewEnemyInit(_Player.f);
+                    mota.dialog.viewEnemyInit(_Player.f);
             }else if(kv == 74 ){ //跳跃楼层
                 if(_Player.items.fzlp)  //必须要有风之罗盘
                     if(_Player.f == 22)
                         Dialog.showMessage("很不幸，本层被魔咒笼罩着，风之罗盘失效了。");
                     else
                         Dialog.chooseFloor(_Player.f_arr);
-            }*/
+            }
         },
 
         /****************************
@@ -42,9 +42,9 @@ define(function(require, exports, module){
          *	@param o : 对话的npc
          * 	@param p : 玩家
          ****************************/
-        EventDialog : function(o , p){
-            mota.dialog = new Dialog(o,p);
-            mota.dialog.start();
+        EventDialog : function(o, p){
+            //mota.dialog = new Dialog(o,p);
+            mota.dialog.start(o, p);
         },
 
         /****************************
@@ -112,7 +112,7 @@ define(function(require, exports, module){
         showMessage_close : function(e){
             var kv = e.keyCode;
             if(kv == 32 ){ //按空格继续
-                Dialog.close();
+                mota.dialog.close();
             }
         },
 
