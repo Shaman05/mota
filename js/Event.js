@@ -32,7 +32,7 @@ define(function(require, exports, module){
                     if(_Player.f == 22)
                         mota.dialog.showMessage("很不幸，本层被魔咒笼罩着，风之罗盘失效了。");
                     else
-                        mota.dialog.chooseFloor(_Player.f_arr);
+                        mota.map.chooseFloor(_Player.f_arr);
             }
         },
 
@@ -129,9 +129,10 @@ define(function(require, exports, module){
 
         //使用风之罗盘跳跃楼层
         _Use_fzlp : function(e){
+            var _Player = mota.player;
             var kv = e.keyCode;
             if(kv == 32 ){ //按空格继续 取消跳跃
-                Dialog.close();
+                mota.dialog.close();
                 _Player.Choose_end();
             }else if(kv == 38){  //选择上一层
                 _Player.Choose_floor("up");

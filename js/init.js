@@ -25,6 +25,11 @@ define(function(require, exports, modules){
     mota.dialog = new Dialog();
     mota.fighting = new Fighting();
     mota.shopping = new Shopping();
+    mota.save = save;
+    mota.load = load;
+    mota.localSave = (function(){
+        return window.localStorage;
+    })();
 
 
     var Player = require('Player');
@@ -77,6 +82,14 @@ define(function(require, exports, modules){
                     var index = $(this).index();
                     $(this).addClass("current").siblings().removeClass("current");
                     $(".tab_c").hide().eq(index).show();
+                });
+                $("#saveBtn").click(function(){
+                    mota.save();
+                    return false;
+                });
+                $("#loadBtn").click(function(){
+                    mota.load();
+                    return false;
                 });
             }
 
@@ -185,6 +198,24 @@ define(function(require, exports, modules){
         mapInit : function(){
             mota.map = new Map();
             mota.map.init(1);
+        }
+    }
+
+    function save(){
+        if(mota.localSave){
+            var mapData = mota.data.map;
+            mota.localSave.setItem('mapStorage', JSON.stringify(mapData));
+        }else{
+            alert("对不起，您使用的浏览器不支持本地存储！");
+        }
+    }
+
+    function load(){
+        if(mota.localSave){
+            var mapData = JSON.parse(mota.localSave['mapStorage']);
+
+        }else{
+            alert("对不起，您使用的浏览器不支持本地存储！");
         }
     }
 });

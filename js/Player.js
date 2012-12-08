@@ -34,8 +34,14 @@ define(function(require, exports, module){
         //this.moveSpeed = 100; //玩家移动速度 暂时关闭移动动画
 
         //以下是隐藏的属性
-        this.items = {  //玩家拥有的物品
-            smszj : 1
+        this.specialPrototype = {
+            crit : 0.05,
+            lucky : 0.1
+        }
+
+        //玩家拥有的物品
+        this.items = {
+
         };
     }
 
@@ -193,7 +199,7 @@ define(function(require, exports, module){
             }
         },
         Choose_end : function(){
-            _Debug.log("你取消了使用风之罗盘！",true);
+            mota._Debug.log("你取消了使用风之罗盘！",true);
         },
         Go_floor : function(){
             var selected = $("#floor_list").find(".selected"),
@@ -201,14 +207,14 @@ define(function(require, exports, module){
             isBeenTo = selected.attr("isBeenTo");
             if(isBeenTo == "true"){
                 this.f = choose_f;
-                _Map_Init(choose_f);
+                mota.map.init(choose_f);
                 this.refreshData();
-                _Debug.log("你使用风之罗盘来到了第 "+ choose_f +" 层！",true);
+                mota._Debug.log("你使用风之罗盘来到了第 "+ choose_f +" 层！",true);
             }else{ //选择的楼层未到达则跳跃至当前楼层
-                _Debug.log("由于你尚未到达过 "+ choose_f +" 层，风之罗盘将你送回了第 "+ this.f +" 层",true);
-                _Map_Init(this.f);
+                mota._Debug.log("由于你尚未到达过 "+ choose_f +" 层，风之罗盘将你送回了第 "+ this.f +" 层",true);
+                mota.map.init(this.f);
             }
-            Dialog.close();
+            mota.dialog.close();
         }
     }
 });

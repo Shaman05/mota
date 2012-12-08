@@ -72,6 +72,34 @@ define(function(require, exports, module){
             }
             floor_f[x][y] = player.id;
             this.floorData[f][x][y] = player;
+        },
+
+        chooseFloor : function(arr){
+            var list = "",
+                index = 1;
+            for(var f in mota.data.map){
+                if(f != "updata_player_position"){
+                    var _floor = parseInt(f.split("_")[1]),
+                        isBeenTo = false;
+                    for(var i=0; i<arr.length; i++)
+                        if(_floor == arr[i])
+                            isBeenTo = true;
+                    var cn = index == mota.player.f ? "selected" : "";
+                    list += '<li class="'+ cn +'" isBeenTo="'+ isBeenTo +'"><span>'+ _floor +'</span></li>';
+                    index ++;
+                }
+            }
+            var html = '<div class="dialog_box" style="margin-top:80px">'+
+                '<div class="use_fzlp">'+
+                '<h3>使用风之罗盘</h3>'+
+                "<p>按 <span class='shopKey'>'&uarr;'</span> 和 <span class='shopKey'>'&darr;'</span> 选择你要去的楼层，按 <span class='shopKey'>'回车'</span> 确定。</p>"+
+                '<ul id="floor_list" class="floor_list">'+ list +'</ul>'+
+                '<div>'+
+                '<div class="continue">按空格键取消...</div>'+
+                '</div>';
+            $(html).appendTo($("#pop_wrap"));
+            mota._Debug.log("你打开了风之罗盘",true);
+            $(document).unbind().bind("keyup", mota.event._Use_fzlp);
         }
     }
 });
