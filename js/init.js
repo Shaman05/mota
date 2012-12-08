@@ -10,19 +10,21 @@
 
 define(function(require, exports, modules){
     var util = require('util');
+    util.namespace('mota');
+
     var data = require('data');
     var Debug = require('Debug');
     var Event = require('Event');
     var Dialog = require('Dialog');
     var Fighting = require('Fighting');
-
-    util.namespace('mota');
+    var Shopping = require('Shopping');
     mota.data = data;
     mota._Debug = Debug;
     mota._T = new Debug.Timer();
     mota.event = Event;
     mota.dialog = new Dialog();
     mota.fighting = new Fighting();
+    mota.shopping = new Shopping();
 
 
     var Player = require('Player');

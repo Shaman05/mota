@@ -71,6 +71,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .use_fzlp h3{text-align:center; font-size:16px; padding-top:14px}
 .use_fzlp ul{padding-left:30px}
 .use_fzlp li{float:left; width:70px}
+.selectItem{padding:6px 60px 0}
 
 /*属性面板*/
 .info{position:absolute; width:390px; height:70px; left:50%; margin-left:-195px; bottom:10px; border:2px #F93 solid; border-radius:6px; background:#66F; overflow:hidden; zoom:1}

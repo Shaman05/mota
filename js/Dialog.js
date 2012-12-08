@@ -13,8 +13,8 @@ define(function(require, exports, module){
     module.exports = Dialog;
 
     function Dialog(){
-        this.o = null;
-        this.p = mota.player || null;
+        this.obj = null;
+        this.player = mota.player || null;
         this.$_obj = null;
         this.box = $("#pop_wrap");
         this.sindex = 0;  //对话序列索引
@@ -26,12 +26,12 @@ define(function(require, exports, module){
             this.player = p;
             this.$_obj = $("#" + o.id);
             mota.player.allowMove = false ;
-            var i = mota.data.dialog_index[this.obj.id]["dialog_index"],
-                direct = this.obj.option["dialog_direct"];
-            this.show(this.obj.option["dialog_"+i] , this.sindex , direct);
+            var i = mota.data.dialog_index[this.obj.id]["dialog_index"];
+            var direct = this.obj.option["dialog_direct"];
+            this.show(this.obj.option["dialog_" + i] , this.sindex , direct);
             if(this.obj.name == "shop_m_l" || this.obj.name == "shop_m_h" || this.obj.name == "shop_e_l" || this.obj.name == "shop_e_h" || this.obj.name == "shop_key_sell" ||this.obj.name == "shop_key_buy"){ //触发购物
-                EventShopping(this.obj , this.player);
-                $(document).unbind().bind("keyup",_Shop_ing);
+                mota.event.EventShopping(this.obj , this.player);
+                $(document).unbind().bind("keyup", mota.event._Shop_ing);
             }else{  //普通对话
                 $(document).unbind().bind("keyup", mota.event._Dialog_ing);
             }
@@ -47,6 +47,7 @@ define(function(require, exports, module){
             var i = mota.data.dialog_index[this.obj.id]["dialog_index"],
                 textArray = this.obj.option["dialog_"+i];
             if(this.sindex == textArray["text"].length){
+                var dialogData = mota.data["dialog_index"];
                 this.close();
                 if(this.obj.id == "angle" && mota.data.dialog_index[this.obj.id]["dialog_index"] == 1){  //如果对话对象是仙子并且是首次对话 对话完需要将仙子位置更新
                     var l = parseInt($("#angle").css("left"));
@@ -56,49 +57,52 @@ define(function(require, exports, module){
                     mota.data.map["floor_" + mota.player.f][mota.player.y-1][mota.player.x] = 100;
                     mota.data.map["floor_" + mota.player.f][mota.player.y-1][mota.player.x-1] = mota.angle.objCode;
                 }
-                if(this.obj.id == "smlr_03" && _Debug.localData[this.obj.id]["dialog_index"] == 1){  //03层神秘老人
-                    _Debug.log("你获得了物品：<em>【钢剑】</em>攻击力提升了 <em>70</em>",true);
+                if(this.obj.id == "smlr_03" && dialogData[this.obj.id]["dialog_index"] == 1){  //03层神秘老人
+                    mota._Debug.log("你获得了物品：<em>【钢剑】</em>攻击力提升了 <em>70</em>",true);
                 }
-                if(this.obj.id == "sr_03" && _Debug.localData[this.obj.id]["dialog_index"] == 1){  //03层商人
-                    _Debug.log("你获得了物品：<em>【钢盾】</em>防御力提升了 <em>30</em>",true);
+                if(this.obj.id == "sr_03" && dialogData[this.obj.id]["dialog_index"] == 1){  //03层商人
+                    mota._Debug.log("你获得了物品：<em>【钢盾】</em>防御力提升了 <em>30</em>",true);
                 }
-                if(this.obj.id == "smlr_16" && _Debug.localData[this.obj.id]["dialog_index"] == 2){  //16层神秘老人
-                    _Debug.log("你获得了物品：<em>【圣光剑】</em>攻击力提升了 <em>120</em>",true);
+                if(this.obj.id == "smlr_16" && dialogData[this.obj.id]["dialog_index"] == 2){  //16层神秘老人
+                    mota._Debug.log("你获得了物品：<em>【圣光剑】</em>攻击力提升了 <em>120</em>",true);
                 }
-                if(this.obj.id == "sr_16" && _Debug.localData[this.obj.id]["dialog_index"] == 2){  //16层神秘商人
-                    _Debug.log("你获得了物品：<em>【星光盾】</em>防御力提升了 <em>120</em>",true);
+                if(this.obj.id == "sr_16" && dialogData[this.obj.id]["dialog_index"] == 2){  //16层神秘商人
+                    mota._Debug.log("你获得了物品：<em>【星光盾】</em>防御力提升了 <em>120</em>",true);
                 }
                 if(textArray["condition"] == null){  //如果触发下一对话无条件的
                     mota.data.dialog_index[this.obj.id]["dialog_index"] += 1;  //变更对话段落索引
                 }else{ //否则判断玩家是否满足条件
                     var _item = textArray["condition"];
-                    if(mota.player.items[_item]){
-                        _Debug.localData[this.obj.id]["dialog_index"] += 1;  //变更对话段落索引;
+                    var _player = this.player;
+                    if(_player.items[_item]){
+                        dialogData[this.obj.id]["dialog_index"] += 1;  //变更对话段落索引;
                     }else{
-                        if(mota.player[_item] >= textArray["value"]){
-                            mota.player[_item] -= textArray["value"];
-                            _Debug.localData[this.obj.id]["dialog_index"] += 1;
+                        if(_player[_item] >= textArray["value"]){
+                            _player[_item] -= textArray["value"];
+                            dialogData[this.obj.id]["dialog_index"] += 1;
                         }
                     }
                 }
                 if(this.obj.option["dialog_"+i]["jiangli"]){  //如果对话结束有奖励
                     var jiangli = this.obj.option["dialog_"+i]["jiangli"];
                     if(jiangli["type"] == "changeMap"){
-                        _Map["floor_"+jiangli["pro"].f][jiangli["pro"].y][jiangli["pro"].x] = null;
-                        _Debug.log("第 <em>"+ jiangli["pro"].f +"</em> 层的门已经开启了！",true);
+                        var f = jiangli["pro"].f;
+                        var x = jiangli["pro"].x;
+                        var y = jiangli["pro"].y;
+                        mota.data.map["floor_" + f][y][x] = null;
+                        mota.map.floorData[f][y][x] = null;
+                        mota._Debug.log("第 <em>"+ f +"</em> 层的门已经开启了！",true);
                     }else if(jiangli["type"] == "powerUp"){
                         for(var pro in jiangli["pro"]){
                             mota.player[pro] *= jiangli["pro"][pro];
                             mota.player[pro] = Math.ceil(mota.player[pro]);
                         }
-                        _Debug.log("你的能力得到了提升，生命、攻击、防御各增加了三分之一。",true);
+                        mota._Debug.log("你的能力得到了提升，生命、攻击、防御各增加了三分之一。",true);
                     }else{
                         for(var pro in jiangli["pro"]){
                             mota.player[pro] += jiangli["pro"][pro];
                             if(jiangli["type"] == "items")
                                 mota._Debug.log("你获得了物品："+"<em>【"+mota.data.item[pro]["CH_name"]+"】</em>",true);
-                            //if(jiangli["type"] == "abillity")
-                            //_Debug.log("你的能力得到了提升！",true);
                         }
                     }
                     mota.player.refreshData();
@@ -172,7 +176,7 @@ define(function(require, exports, module){
             //查找出每种敌人的属性
             var tr = "";
             for(var i = 0, len = arr.length; i < len; i++){
-                var result = mota.fighting.fightingTest(arr[i], mota.player);
+                var result = mota.fighting.getFightingResult(arr[i], mota.player);
                 var loss = result.loss;
                 var name = arr[i].name;
                 var enemyData = mota.data.monster[name];

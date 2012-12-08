@@ -9,7 +9,6 @@
  */
 
 define(function(require, exports, module){
-    var Dialog = require("Dialog");
 
     module.exports = {
 
@@ -31,9 +30,9 @@ define(function(require, exports, module){
             }else if(kv == 74 ){ //跳跃楼层
                 if(_Player.items.fzlp)  //必须要有风之罗盘
                     if(_Player.f == 22)
-                        Dialog.showMessage("很不幸，本层被魔咒笼罩着，风之罗盘失效了。");
+                        mota.dialog.showMessage("很不幸，本层被魔咒笼罩着，风之罗盘失效了。");
                     else
-                        Dialog.chooseFloor(_Player.f_arr);
+                        mota.dialog.chooseFloor(_Player.f_arr);
             }
         },
 
@@ -76,9 +75,8 @@ define(function(require, exports, module){
          *	@param e : 怪物
          * 	@param p : 玩家
          ****************************/
-        EventFighting : function(e , p){
-            _Fighting = new Fighting(e,p);
-            _Fighting.init();
+        EventFighting : function(o , p){
+            mota.fighting.init(o,p);
         },
 
         /****************************
@@ -87,17 +85,7 @@ define(function(require, exports, module){
          * 	@param p : 玩家
          ****************************/
         EventShopping : function(s , p){
-            _Shopping = new Shopping(s , p);
-            _Shopping.start();
-        },
-
-        /****************************
-         *	开门事件
-         *	@param door : 门
-         * 	@param p : 玩家
-         ****************************/
-        EventOpenDoor : function(door , p){
-            _Debug.log("你开启了一座门" + door.name);
+            mota.shopping.start(s, p);
         },
 
         //对话中
@@ -120,7 +108,7 @@ define(function(require, exports, module){
         _Fight_end : function(e){
             var kv = e.keyCode;
             if(kv == 32 ){ //按空格继续
-                _Fighting.close();
+                mota.fighting.complete();
             }
         },
 
@@ -128,14 +116,14 @@ define(function(require, exports, module){
         _Shop_ing : function(e){
             var kv = e.keyCode;
             if(kv == 32 ){ //按空格继续 取消购物
-                Dialog.close();
-                _Shopping.end();
+                mota.dialog.close();
+                mota.shopping.end();
             }else if(kv == 38){  //向上移动选框
-                _Shopping.selectItem("up");
+                mota.shopping.selectItem("up");
             }else if(kv == 40){  //向下移动选框
-                _Shopping.selectItem("down");
+                mota.shopping.selectItem("down");
             }else if(kv == 13){  //按回车 确定购买所选物品
-                _Shopping.ok();
+                mota.shopping.ok();
             }
         },
 
