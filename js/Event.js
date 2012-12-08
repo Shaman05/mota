@@ -53,9 +53,9 @@ define(function(require, exports, module){
          * 	@param p : 玩家
          ****************************/
         EventStairs : function(d , p){
-            var m = _Map["floor_"+p.f],
-                upp = _Map["updata_player_position"][p.f];
-            _Updata_Player_Position(p.f , upp[d].y , upp[d].x); //更新上一次所在楼层中玩家的位置
+            var m = mota.map.floorData["floor_" + p.f],
+                upp = mota.data.map["updata_player_position"][p.f];
+            mota.map.upDatePlayerPosition(p.f , upp[d].y , upp[d].x); //更新上一次所在楼层中玩家的位置
             if(d == "go_up"){  //上楼
                 p.f ++;
                 var isBeenTo = false;
@@ -67,8 +67,8 @@ define(function(require, exports, module){
             }else if(d == "go_down"){  //下楼
                 p.f --;
             }
-            _Debug.log("你来到了第" + p.f + "层！")
-            _Map_Init(p.f);
+            mota._Debug.log("你来到了第" + p.f + "层！")
+            mota.map.init(p.f);
         },
 
         /****************************

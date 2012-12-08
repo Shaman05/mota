@@ -22,8 +22,9 @@ define(function(require, exports, modules){
 
 
     var Player = require('Player');
-    var Barrier = require('Barrier').Barrier;
-    var Stair = require('Barrier').Stair;
+    var Barrier = require('Barrier');
+    var Stair = require('Stair');
+    var Door = require('Door');
     var Npc = require('Npc');
     var Monster = require('Monster');
     var Item = require('Item');
@@ -109,15 +110,20 @@ define(function(require, exports, modules){
             mota.player = new Player(playerName);
         },
         createBarrier : function(){
-            //mota.barrier = {};
             mota._Wall = new Barrier("wall");
             mota._Fire = new Barrier("fire");
             mota._Sky = new Barrier("sky");
-            mota._Door_gold = new Barrier("door_gold");
             mota._Shop_left = new Barrier("shop_left");
             mota._Shop_right = new Barrier("shop_right");
+
             mota._Up_stairs =  new Stair("go_up");
             mota._Down_stairs =  new Stair("go_down");
+
+            mota.gold_door = new Door("gold_door");
+            mota.yellow_door = new Door("yellow_door");
+            mota.blue_door = new Door("blue_door");
+            mota.red_door = new Door("red_door");
+            mota.fence = new Door("fence");
         },
         createNpcs : function(){
             mota.npcs = [
@@ -158,7 +164,7 @@ define(function(require, exports, modules){
         },
         createItems : function(){
             mota.items = [
-                'yellow_door','blue_door','red_door','fence','yellow_key','blue_key',
+                'yellow_key','blue_key',
                 'red_key','keyList','blue_stone','red_stone','red_potions','blue_potions',
                 'sword_1','sword_2','sgh','fzlp','smszj','xgsl',
                 'tiedun','hjd','xiaofeiyu','dafeiyu','jinbidai','ssp'

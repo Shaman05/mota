@@ -13,6 +13,7 @@ define(function(require, exports, module){
     module.exports = Player;
 
     function Player(name){
+        this.id = 101;
         this.name = name;  //玩家名字
         this.direct = "up";  //玩家方向
         this.x = 10; //玩家x坐标 初始值可以任意
@@ -26,7 +27,7 @@ define(function(require, exports, module){
         this.attack = 10; //玩家攻击力
         this.defense = 10; //玩家防御力
         this.expe = 0; //玩家经验值
-        this.yellow_key = 10; //玩家拥有的黄钥匙
+        this.yellow_key = 3; //玩家拥有的黄钥匙
         this.blue_key = 0; //玩家拥有的蓝钥匙
         this.red_key = 0; //玩家拥有的红钥匙
         //this.moveSpeed = 100; //玩家移动速度 暂时关闭移动动画
@@ -101,23 +102,62 @@ define(function(require, exports, module){
             if(o == "limit"){
                 return
             }else{
-                var name = o.name,
-                    type = o.type;
+                var name = o.name;
+                var type = o.type;
+                switch(type){
+                    case "stair":
+                        mota.event.EventStairs(name,mota.player);
+                        break;
+                    case "item":
+                        this.changePosition(this.direct);
+                        if(name == "item-ssp"){  //圣水瓶
+                            this.health += this.health;
+                            mota._Debug.log("你获得了物品："+"<em>【"+o.options.CH_name+"】</em> 生命值翻倍！" ,true);
+                            this.refreshData();
+                        }else{
+                            this.addPrototype(o);
+                        }
+
+                        var n = o.options.CH_name;
+                        if(n == "圣光徽")
+                            Dialog.showMessage("你拿到了圣光徽，该宝物可以允许你查看怪物属性，并计算出你打败怪物所损耗的生命值。现在可以按 '<span class='shopKey'>L</span>' 键查看怪物属性。");
+                        if(n == "风之罗盘")
+                            Dialog.showMessage("你拿到了风之罗盘，该宝物可以使你在走过的楼层间自由穿梭。现在可以按 '<span class='shopKey'>J</span>' 键，选择你要去的楼层。");
+                        o.remove();
+                        break;
+                    case "door":
+                        if(this[o.options["need"]] > 0 || !o.options["need"]){  //拥有钥匙 或者 不需要条件
+                            if(name != "fence")this.addPrototype(o);
+                            this.changePosition(this.direct);
+                            o.remove();
+                        }else{
+                            return
+                        }
+                        break;
+                    case "npc":
+                        mota.event.EventDialog(o,mota.player);
+                        break;
+                    case "enemy":
+                        break;
+                    default: return;
+                }
+
+                /*
                 if(type == "npc"){  //NPC
                     mota.event.EventDialog(o,mota.player);
                 }else if(name == "go_up" || name == "go_down"){  //上下楼梯
-                    EventStairs(name,_Player);
+                    mota.event.EventStairs(name,mota.player);
                 }else if(type == "enemy"){  //遇到怪物
-                    EventFighting(o,_Player);
+                    mota.event.EventFighting(o,mota.player);
                 }else if(type == "item"){  //物品
                     this.changePosition(this.direct);
                     if(name == "item-ssp"){  //圣水瓶
                         this.health += this.health;
-                        _Debug.log("你获得了物品："+"<em>【"+o.CH_name+"】</em> 生命值翻倍！" ,true);
+                        mota._Debug.log("你获得了物品："+"<em>【"+o.CH_name+"】</em> 生命值翻倍！" ,true);
                         this.refreshData();
                     }else{
                         this.addPrototype(o.itemId);
-                        _Debug.log("你获得了物品："+"<em>【"+o.CH_name+"】</em>",true);
+                        mota._Debug.log("你获得了物品："+"<em>【"+o.CH_name+"】</em>",true);
                     }
                     o.clearThis();
                     var n = o.CH_name;
@@ -137,7 +177,7 @@ define(function(require, exports, module){
                     }
                 }else{
                     return
-                }
+                }*/
             }
         },
         changePosition : function(direct){
@@ -159,13 +199,13 @@ define(function(require, exports, module){
                 y = _top/32;
             this.setPosition(x,y);
         },
-        addPrototype : function(itemName){
-            var prototypes = Item.data[itemName]["values"];
-            if(prototypes == "item"){
-                this.items[Item.data[itemName]["name"]] = true;
+        addPrototype : function(o){
+            var prototype = mota.data[o.type][o.name]["values"];
+            if(prototype == "item"){  //此条件尚未完成
+                this.items[mota.data.item[type]["name"]] = true;
             }else{
-                for(var pro in prototypes){
-                    this[pro] += prototypes[pro];
+                for(var pro in prototype){
+                    this[pro] += prototype[pro];
                 }
             }
             this.refreshData();

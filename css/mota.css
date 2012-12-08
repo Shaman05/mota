@@ -36,7 +36,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .game_helper p a{text-decoration:none; padding:6px 12px 3px; background:#F93; color:#FFF; border-style:solid; border-width:1px; border-color:#ccc #ccc #999 #999}
 
 /*弹出层*/
-.pop_wrap{height:352px; width:352px; position:absolute; z-index:99; left:32px; top:32px; background:none}
+.pop_wrap{height:352px; width:352px; position:absolute; z-index:99; left:32px; top:32px; background:none;}
 .dialog_box,.dialog_arrow_up,.dialog_arrow_down{border:1px #F90 solid; background:#FFC}
 .dialog_box{border-radius:6px; color:#603; position:absolute; width:100%; opacity:0.9; filter:alpha(opacity=90)}
 .dialog_box p,.dialog_box .continue{padding:6px 16px}
@@ -86,9 +86,9 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .info_col_3 p{margin-top:2px}
 .info_col_3 p span{display:block}
 .key{padding-left:20px; background-image:url(../image/key.png); background-repeat:no-repeat}
-.yellow_key{background-position:0 0; color:yellow}
-.blue_key{background-position:0 -20px; color:blue}
-.red_key{background-position:0 -40px; color:red}
+.yellow_key_icon{background-position:0 0; color:yellow}
+.blue_key_icon{background-position:0 -20px; color:blue}
+.red_key_icon{background-position:0 -40px; color:red}
 
 /*玩家*/
 .player_up,.player_down,.player_left,.player_right,.block{height:32px; width:32px; position:absolute; z-index:10}
@@ -109,11 +109,11 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .shop_right{background:url(../image/shop_right.jpg) no-repeat 0 0}
 .go_up{background:url(../image/go_up.jpg) no-repeat 0 0}
 .go_down{background:url(../image/go_down.jpg) no-repeat 0 0}
-.door-blue_door{background:url(../image/door_blue.jpg) no-repeat 0 0}
+.blue_door{background:url(../image/door_blue.jpg) no-repeat 0 0}
 .yellow_door{background:url(../image/door_yellow.jpg) no-repeat 0 0}
 .red_door{background:url(../image/door_red.jpg) no-repeat 0 0}
 .gold_door{background:url(../image/door_gold.jpg) no-repeat 0 0}
-.fence_door{background:url(../image/fence.jpg) no-repeat 0 0}
+.fence{background:url(../image/fence.jpg) no-repeat 0 0}
 
 /*NPC*/
 .angle{background:url(../image/angle.jpg) no-repeat 0 0}
@@ -158,24 +158,24 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .enemy_33{background:url(../image/enemy_33.jpg) no-repeat 0 0}
 
 /*物品*/
-.item-yellow_key{background:url(../image/item_yellowKey.jpg) no-repeat 0 0}
-.item-blue_key{background:url(../image/item_blueKey.jpg) no-repeat 0 0}
-.item-red_key{background:url(../image/item_redKey.jpg) no-repeat 0 0}
-.item-keyList{background:url(../image/item_keyList.jpg) no-repeat 0 0}
-.item-blue_stone{background:url(../image/item_blueStone.jpg) no-repeat 0 0}
-.item-red_stone{background:url(../image/item_redStone.jpg) no-repeat 0 0}
-.item-blue_potions{background:url(../image/item_bluePotions.jpg) no-repeat 0 0}
-.item-red_potions{background:url(../image/item_redPotions.jpg) no-repeat 0 0}
-.item-sword_1,.item-sword_2{background:url(../image/item_sword_1.jpg) no-repeat 0 0}
-.item-sgh{background:url(../image/item_sgh.jpg) no-repeat 0 0}
-.item-tiedun{background:url(../image/item_tiedun.jpg) no-repeat 0 0}
-.item-xiaofeiyu,.item-dafeiyu{background:url(../image/item_xiaofeiyu.jpg) no-repeat 0 0}
-.item-jinbidai{background:url(../image/item_jinbidai.jpg) no-repeat 0 0}
-.item-smszj{background:url(../image/item_smszj.jpg) no-repeat 0 0}
-.item-ssp{background:url(../image/item_ssp.jpg) no-repeat 0 0}
-.item-fzlp{background:url(../image/item_fzlp.jpg) no-repeat 0 0}
-.item-xgsl{background:url(../image/item_xgsl.jpg) no-repeat 0 0}
-.item-hjd{background:url(../image/item_hjd.jpg) no-repeat 0 0}
+.yellow_key{background:url(../image/item_yellowKey.jpg) no-repeat 0 0}
+.blue_key{background:url(../image/item_blueKey.jpg) no-repeat 0 0}
+.red_key{background:url(../image/item_redKey.jpg) no-repeat 0 0}
+.keyList{background:url(../image/item_keyList.jpg) no-repeat 0 0}
+.blue_stone{background:url(../image/item_blueStone.jpg) no-repeat 0 0}
+.red_stone{background:url(../image/item_redStone.jpg) no-repeat 0 0}
+.blue_potions{background:url(../image/item_bluePotions.jpg) no-repeat 0 0}
+.red_potions{background:url(../image/item_redPotions.jpg) no-repeat 0 0}
+.sword_1,.sword_2{background:url(../image/item_sword_1.jpg) no-repeat 0 0}
+.sgh{background:url(../image/item_sgh.jpg) no-repeat 0 0}
+.tiedun{background:url(../image/item_tiedun.jpg) no-repeat 0 0}
+.xiaofeiyu,.dafeiyu{background:url(../image/item_xiaofeiyu.jpg) no-repeat 0 0}
+.jinbidai{background:url(../image/item_jinbidai.jpg) no-repeat 0 0}
+.smszj{background:url(../image/item_smszj.jpg) no-repeat 0 0}
+.ssp{background:url(../image/item_ssp.jpg) no-repeat 0 0}
+.fzlp{background:url(../image/item_fzlp.jpg) no-repeat 0 0}
+.xgsl{background:url(../image/item_xgsl.jpg) no-repeat 0 0}
+.hjd{background:url(../image/item_hjd.jpg) no-repeat 0 0}
 
 
 
