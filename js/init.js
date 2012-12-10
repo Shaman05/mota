@@ -27,9 +27,7 @@ define(function(require, exports, modules){
     mota.shopping = new Shopping();
     mota.save = save;
     mota.load = load;
-    mota.localSave = (function(){
-        return window.localStorage;
-    })();
+    mota.localSave = util.localStore();
 
 
     var Player = require('Player');
@@ -203,8 +201,7 @@ define(function(require, exports, modules){
 
     function save(){
         if(mota.localSave){
-            var mapData = mota.data.map;
-            mota.localSave.setItem('mapStorage', JSON.stringify(mapData));
+            mota.map.save();
         }else{
             alert("对不起，您使用的浏览器不支持本地存储！");
         }
@@ -212,8 +209,7 @@ define(function(require, exports, modules){
 
     function load(){
         if(mota.localSave){
-            var mapData = JSON.parse(mota.localSave['mapStorage']);
-
+            mota.map.load();
         }else{
             alert("对不起，您使用的浏览器不支持本地存储！");
         }

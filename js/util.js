@@ -25,6 +25,10 @@ define(function(require, exports, module){
             return o;
         },
 
+        localStore : function(){
+            return window.localStorage || false;
+        },
+
         /**
          * 获取指定参数值
          * @param param 要获取的参数

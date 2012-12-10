@@ -215,6 +215,14 @@ define(function(require, exports, module){
                 mota.map.init(this.f);
             }
             mota.dialog.close();
+        },
+        getProperty : function(){
+            var property = {};
+            for(var pro in this){
+                if(typeof this[pro] !== "function")
+                    property[pro] = this[pro];
+            }
+            return property;
         }
     }
 });

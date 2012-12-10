@@ -100,6 +100,30 @@ define(function(require, exports, module){
             $(html).appendTo($("#pop_wrap"));
             mota._Debug.log("你打开了风之罗盘",true);
             $(document).unbind().bind("keyup", mota.event._Use_fzlp);
+        },
+
+        save : function(){
+            var DATA = {
+                map : mota.data.map,
+                player : mota.player.getProperty()
+            };
+            mota.localSave.setItem('mota_localStorage', JSON.stringify(DATA));
+        },
+
+        load : function(){
+            var record = mota.localSave['mota_localStorage'];
+            if(record){
+                var DATA = JSON.parse(record);
+                var player = DATA.player;
+                mota.data.map = DATA.map;
+                for(var pro in player){
+                    mota.player[pro] = player[pro];
+                }
+                mapBox.empty();
+                this.init(DATA.player.f);
+            }else{
+                alert("尚无游戏记录！");
+            }
         }
     }
 });
