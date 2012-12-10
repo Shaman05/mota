@@ -20,11 +20,6 @@ define(function(require, exports, module){
     }
 
     Door.prototype = new Barrier();
-
-    Door.prototype.clone = function(){
-        return new Door(this.name, this.options);
-    }
-
     Door.prototype.remove = function(){
         mota.map.clearObject(this);
         mota._Debug.log("你打开了一座：" + "<em>" + this.options.CH_name + "</em>", true);

@@ -17,8 +17,12 @@ define(function(require, exports, module){
         this.type = "barrier";
     }
 
+    //无需深度克隆
     Barrier.prototype.clone = function(){
-        return new Barrier(this.name);
+        var newObj = {};
+        for(var p in this){
+            newObj[p] = this[p];
+        }
+        return newObj;
     }
-
 });

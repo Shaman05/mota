@@ -19,8 +19,4 @@ define(function(require, exports, module){
     }
 
     Stair.prototype = new Barrier();
-
-    Stair.prototype.clone = function(){
-        return new Stair(this.name);
-    }
 });
