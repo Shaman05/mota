@@ -103,9 +103,11 @@ define(function(require, exports, module){
         },
 
         save : function(){
+            //需要存储 1.地图数据 2.玩家数据 3.与NPC对话的索引
             var DATA = {
                 map : mota.data.map,
-                player : mota.player.getProperty()
+                player : mota.player.getProperty(),
+                dialogIndex : mota.data.dialog_index
             };
             mota.localSave.setItem('mota_localStorage', JSON.stringify(DATA));
         },
@@ -119,6 +121,7 @@ define(function(require, exports, module){
                 for(var pro in player){
                     mota.player[pro] = player[pro];
                 }
+                mota.data.dialog_index = DATA.dialogIndex;
                 mapBox.empty();
                 this.init(DATA.player.f);
             }else{
