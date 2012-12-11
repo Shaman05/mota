@@ -69,7 +69,29 @@ define(function(require, exports, modules){
 
             function init(){
                 $(".welcome").removeClass("loading");
-                $(".chapter").animate({"margin-top":0},1000);
+                $(".chapter").animate({"margin-top":0},1000,function(){
+                    $(".rights").fadeIn(500);
+                    $("#new_game").click(function(){
+                        $("#records").hide();
+                        $(".new_game").show();
+                        $(".page_wrap").animate({"margin-left":-416},500,function(){
+                            $("#back").fadeIn(500);
+                        });
+                    });
+                   $("#load_game").click(function(){
+                       $(".new_game").hide();
+                       $("#records").show();
+                       $(".page_wrap").animate({"margin-left":-416},500,function(){
+                           $("#back").fadeIn(500);
+                       });
+                   });
+                });
+                $("#back").click(function(){
+                    var _this = $(this);
+                    $(".page_wrap").animate({"margin-left":0},500,function(){
+                        _this.hide();
+                    });
+                });
                 $("#startBtn").click(function(){
                     gameStart();
                 });

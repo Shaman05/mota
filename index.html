@@ -16,13 +16,29 @@
             <p>终于，在国王下达命令的第31天，一位从远方归来的人说，在海边的一座小岛上，看到一群怪物出现过。</p>
             <p>这一次，勇士们又出发了。不过，据说这一次，没有一个勇士活着回来过.....</p>
         </div>
-        <div class="game_helper">
-            <h4>游戏说明：</h4>
-            <ol>
-                <li>地图右侧添加了游戏信息面板查看游戏过程中的事件信息。</li>
-                <li><strong>注意：</strong>此次版本尚未添加游戏保存功能，如果刷新页面游戏将会重新开始。</li>
-            </ol>
-            <p><input type="text" id="player_name" size="15" value="输入游戏角色名称" onFocus="this.value=this.value=='输入游戏角色名称'?'':this.value" onBlur="this.value=this.value==''?'输入游戏角色名称':this.value">&nbsp;<a id="startBtn" href="javascript:">开始游戏</a></p>
+        <div class="page_wrap">
+            <div class="new_load">
+                <a href="javascript:" class="btn" id="new_game">新的游戏</a>
+                <a href="javascript:" class="btn load_game" id="load_game">载入游戏</a>
+            </div>
+            <div class="game_helper">
+                <a id="back" class="back" href="javascript:" title="返回">&lt;</a>
+                <div class="new_game">
+                    <input type="text" id="player_name" size="15" value="输入游戏角色名称" onFocus="this.value=this.value=='输入游戏角色名称'?'':this.value" onBlur="this.value=this.value==''?'输入游戏角色名称':this.value">
+                    <a class="btn" id="startBtn" href="javascript:">开始游戏</a>
+                </div>
+                <div class="records" id="records">
+                    <ul>
+                        <li>Shaman 2012-12-11 10:43</li>
+                        <li>空的记录</li>
+                        <li>空的记录</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="rights">
+            <p>mota v1.2 Bate, by <a href="http://www.shaman05.com" target="_blank">shaman</a></p>
+            <p>Recommends using Firefox or Google browser.</p>
         </div>
 	</div>
 	<span id="toggle" class="toggle toggle_off"><span class="t_on" title="隐藏辅助面板">&laquo;</span><span class="t_off" title="显示辅助面板">&raquo;</span></span>
@@ -77,11 +93,6 @@
         <a href="javascipt:" id="saveBtn" class="saveBtn">Save</a>
         <a href="javascipt:" id="loadBtn" class="loadBtn">Load</a>
     </div>
-</div>
-<div class="rights">
-	<p>mota v1.12 Bate</p>
-    <p>By <a href="http://www.shaman05.com" target="_blank">shaman</a></p>
-    <p>Recommends using Firefox or Google support css3 the browser</p>
 </div>
 <script type="text/javascript" src="./js/sea.js" data-main="main"></script>
 </body>
