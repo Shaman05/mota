@@ -26,22 +26,23 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .map{height:352px; width:352px; background:url(../image/bg_map.jpg) repeat 0 0; position:relative}
 .welcome{width:416px; height:480px; overflow:hidden; position:absolute; top:0; left:0; border-radius:5px; background:#2e2e2e; z-index:999999}
 .loading{background:#2e2e2e url(../image/perloading.gif) no-repeat center center}
-.chapter,.game_helper{padding:20px 20px 0}
+.chapter,.game_helper{padding:0 20px}
 .chapter{margin-top:460px}
-.page_wrap{width: 832px; overflow: hidden; zoom: 1}
+.page_wrap{width: 832px; overflow: hidden; zoom: 1; padding-top:20px}
 .chapter p{text-indent:2em; margin-bottom:1em; line-height:1.8em}
 .new_load{width: 236px; float: left;}
-.new_load,.records{padding: 20px 90px;}
+.new_load,.records{padding: 0 90px;}
 .load_game{margin-left: 80px;}
 .new_game,.records,.game_helper .back{display: none;}
 .new_game{padding-top: 25px;}
 .new_game input{height: 20px; padding: 2px; line-height: 20px; vertical-align: middle; border: 1px solid #6495ed; width: 120px;}
 .game_helper{text-align:center; width: 376px; float: left; position: relative; zoom: 1}
-.game_helper .back{position: absolute; top: 47px; left: 40px; font-size: 30px; font-weight: bold; color: #FFF; text-decoration: none;}
+.game_helper .back{position: absolute; top: 27px; left: 40px; font-size: 30px; font-weight: bold; color: #FFF; text-decoration: none;}
 .btn{text-decoration:none; padding:0 12px; display: inline-block; zoom: 1; background:#F93; color:#FFF; height: 24px; line-height: 24px; vertical-align: middle;
     border-style:solid; border-width:1px; border-color:#ccc #ccc #999 #999}
-.records{text-align: center;}
-.records li{list-style: none;}
+.records{text-align: center; margin-top:-1px}
+.records li{list-style: none; height:22px; line-height:22px; margin-bottom:6px; background:#eaeaed; color: #363636}
+.records li a{display:block; height:100%}
 
 /*弹出层*/
 .pop_wrap{height:352px; width:352px; position:absolute; z-index:99; left:32px; top:32px; background:none;}
