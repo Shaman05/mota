@@ -11,7 +11,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .debug .tab_c ol li{margin-bottom:6px}
 .debug #debug p{border-bottom:1px solid #999; text-indent:0; text-align:left; margin-bottom:0}
 .debug p{padding:8px 4px 2px; text-indent:2em; text-align:justify; margin-bottom:10px}
-.debug strong{color:#690}
+.debug strong{color:#690; font-weight:normal;}
 .debug span{color:#F30}
 .game_features{position:absolute; left:9px; bottom:8px}
 .game_features span{float:left; margin-right:12px; background:#369; color:#FFF; line-height:normal; padding:2px 6px; cursor:pointer}
@@ -29,6 +29,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .chapter,.game_helper{padding:0 20px}
 .chapter{margin-top:460px}
 .page_wrap{width: 832px; overflow: hidden; zoom: 1; padding-top:20px}
+.chapter{padding-top:30px}
 .chapter p{text-indent:2em; margin-bottom:1em; line-height:1.8em}
 .new_load{width: 236px; float: left;}
 .new_load,.records{padding: 0 90px;}
@@ -37,7 +38,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .new_game{padding-top: 25px;}
 .new_game input{height: 20px; padding: 2px; line-height: 20px; vertical-align: middle; border: 1px solid #6495ed; width: 120px;}
 .game_helper{text-align:center; width: 376px; float: left; position: relative; zoom: 1}
-.game_helper .back{position: absolute; top: 27px; left: 40px; font-size: 30px; font-weight: bold; color: #FFF; text-decoration: none;}
+.game_helper .back{position: absolute; top: 27px; left: 40px; font-size: 30px; font-weight: bold; color: #FFF; text-decoration: none; outline:none}
 .btn{text-decoration:none; padding:0 12px; display: inline-block; zoom: 1; background:#F93; color:#FFF; height: 24px; line-height: 24px; vertical-align: middle;
     border-style:solid; border-width:1px; border-color:#ccc #ccc #999 #999}
 .records{text-align: center; margin-top:-1px}
@@ -95,6 +96,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .info_col_3{width:50px; border-left:1px #F93 solid}
 .info_col_3 p{margin-top:2px}
 .info_col_3 p span{display:block}
+.info p strong{font-weight:normal;}
 .key{padding-left:20px; background-image:url(../image/key.png); background-repeat:no-repeat}
 .yellow_key_icon{background-position:0 0; color:yellow}
 .blue_key_icon{background-position:0 -20px; color:blue}

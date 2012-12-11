@@ -44,6 +44,7 @@ define(function(require, exports, module){
             }
             mapBox.html(mapHtml);
             player.refreshData();
+            $(document).unbind().bind("keyup", mota.event._Player_Move);
         },
 
         clearObject : function(o){

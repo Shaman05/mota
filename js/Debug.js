@@ -26,7 +26,7 @@ define(function(require, exports, module){
             $("<p>" + timerTip + "</p>").prependTo(box);
         },
         Timer : function(){
-            var _T = module.exports.Timer.clock;
+            var _T = null;
             var second = 0;
             var gogo = function(){
                 second ++ ;

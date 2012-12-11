@@ -68,12 +68,13 @@ define(function(require, exports, modules){
             })
 
             function init(){
+                var welCome = $(".welcome");
                 var rights = $(".rights");
                 var pageWrap = $(".page_wrap");
                 var backBtn = $("#back");
 
 
-                $(".welcome").removeClass("loading");
+                welCome.removeClass("loading");
                 $(".chapter").animate({"margin-top":0},1000,function(){
                     rights.fadeIn(500);
                     $("#new_game").click(function(){
@@ -110,8 +111,17 @@ define(function(require, exports, modules){
                     mota.save();
                     return false;
                 });
-                $("#loadBtn").click(function(){
-                    mota.load();
+                $("#loadBtn,#load_game_1").click(function(){
+                    welCome.fadeOut(500,function(){
+                        mota.map = new Map();
+                        mota._T = new Debug.Timer();
+                        mota._T.run();
+                        mota.load();
+                        mota._Debug.log("载入游戏成功！开始重新计时...", true);
+                        if($(".debug").css("display") !== "block"){
+                            util.$toggleDebug();
+                        }
+                    });
                     return false;
                 });
 
@@ -132,12 +142,8 @@ define(function(require, exports, modules){
                     //console.time("装载地图");
                     _this.mapInit(1);
                     //console.timeEnd("装载地图");
-
-
-                    mota._T.run(); //开始计时
                     mota._Debug.log("游戏开始了...");
-
-                    $(document).bind("keyup", Event._Player_Move);
+                    mota._T.run(); //开始计时
 
                     $(this).remove();
                     util.$toggleDebug();
