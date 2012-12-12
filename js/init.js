@@ -112,16 +112,21 @@ define(function(require, exports, modules){
                     return false;
                 });
                 $("#loadBtn,#load_game_1").click(function(){
-                    welCome.fadeOut(500,function(){
-                        mota.map = new Map();
-                        mota._T = new Debug.Timer();
-                        mota._T.run();
-                        mota.load();
-                        mota._Debug.log("载入游戏成功！开始重新计时...", true);
-                        if($(".debug").css("display") !== "block"){
-                            util.$toggleDebug();
-                        }
-                    });
+                    var record = mota.localSave['mota_localStorage'];
+                    if(record){
+                        welCome.fadeOut(500,function(){
+                            mota.map = new Map();
+                            mota._T = new Debug.Timer();
+                            mota._T.run();
+                            mota.load();
+                            mota._Debug.log("载入游戏成功！开始重新计时...", true);
+                            if($(".debug").css("display") !== "block"){
+                                util.$toggleDebug();
+                            }
+                        });
+                    }else{
+                        alert("尚无游戏记录！");
+                    }
                     return false;
                 });
 

@@ -44,6 +44,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .records{text-align: center; margin-top:-1px}
 .records li{list-style: none; height:22px; line-height:22px; margin-bottom:6px; background:#eaeaed; color: #363636}
 .records li a{display:block; height:100%}
+.save_load{position: absolute; right: 9px; bottom: 2px;}
 
 /*弹出层*/
 .pop_wrap{height:352px; width:352px; position:absolute; z-index:99; left:32px; top:32px; background:none;}
