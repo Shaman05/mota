@@ -46,6 +46,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .records li a{display:block; height:100%}
 .setting{display:none;}
 .save_load{position: absolute; right: 9px; bottom: 2px;}
+.game_speed,.save_load .btn{vertical-align:middle;}
 
 /*弹出层*/
 .pop_wrap{height:352px; width:352px; position:absolute; z-index:99; left:32px; top:32px}
@@ -131,7 +132,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .blue_door{background-position:-192px -32px}
 .yellow_door{background-position:-128px -32px}
 .red_door{background-position:-160px -32px}
-.fence{background-position:-288px -32px}
+.fence{background-position:-224px -32px}
 .go_up{background-position:0 -64px}
 .go_down{background-position:-32px -64px}
 

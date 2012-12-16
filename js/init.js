@@ -193,19 +193,8 @@ define(function(require, exports, modules){
         },
         createNpcs : function(){
             mota.npcs = [
-                'angle',
-                'shop_m_l',
-                'shop_m_h',
-                'shop_e_l',
-                'shop_e_h',
-                'shop_key_sell',
-                'shop_key_buy',
-                'jack',
-                'smlr_03',
-                'sr_03',
-                'smlr_16',
-                'sr_16',
-                'princess'
+                'angle','shop_m_l','shop_m_h','shop_e_l','shop_e_h','shop_key_sell',
+                'shop_key_buy','jack','smlr_03','sr_03','smlr_16','sr_16','princess'
             ];
             //mota.npc = {};
             for(var i = 0, len = mota.npcs.length; i < len; i++){
