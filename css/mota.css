@@ -28,12 +28,12 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .loading{background:#2e2e2e url(../image/perloading.gif) no-repeat center center}
 .chapter,.game_helper{padding:0 20px}
 .chapter{margin-top:460px}
-.page_wrap{width: 832px; overflow: hidden; zoom: 1; padding-top:20px}
-.chapter{padding-top:30px}
+.page_wrap{width: 832px; overflow: hidden; zoom: 1; padding-top:10px}
+.chapter{padding-top:20px}
 .chapter p{text-indent:2em; margin-bottom:1em; line-height:1.8em}
-.new_load{width: 236px; float: left;}
+.new_load{width: 236px; float: left; text-align:center}
+.new_load .btn{margin-bottom:4px}
 .new_load,.records{padding: 0 90px;}
-.load_game{margin-left: 80px;}
 .new_game,.records,.game_helper .back{display: none;}
 .new_game{padding-top: 25px;}
 .new_game input{height: 20px; padding: 2px; line-height: 20px; vertical-align: middle; border: 1px solid #6495ed; width: 120px;}
@@ -44,6 +44,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .records{text-align: center; margin-top:-1px}
 .records li{list-style: none; height:22px; line-height:22px; margin-bottom:6px; background:#eaeaed; color: #363636}
 .records li a{display:block; height:100%}
+.setting{display:none;}
 .save_load{position: absolute; right: 9px; bottom: 2px;}
 
 /*弹出层*/

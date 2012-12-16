@@ -18,8 +18,9 @@
         </div>
         <div class="page_wrap">
             <div class="new_load">
-                <a href="javascript:" class="btn" id="new_game">新的游戏</a>
-                <a href="javascript:" class="btn load_game" id="load_game_1">载入进度</a>
+                <a href="javascript:" class="btn" id="new_game">新的游戏</a><br>
+                <a href="javascript:" class="btn load_game" id="load_game_1">载入进度</a><br>
+                <a href="javascript:" class="btn" id="game_setting">游戏设置</a>
             </div>
             <div class="game_helper">
                 <a id="back" class="back" href="javascript:" title="返回">&lt;</a>
@@ -32,6 +33,13 @@
                         <li>Shaman 2012-12-11 10:43</li>
                         <li>空的记录</li>
                         <li>空的记录</li>
+                    </ul>
+                </div>
+                <div class="setting" id="setting">
+                    <ul>
+                        <li>游戏速度： </li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </div>
             </div>
@@ -87,10 +95,17 @@
         </ol>
     </div>
     <div class="tab_c" style="display:none">
-    	<p>去年年底项目完成后闲得蛋疼，想做点事情，就想搞个游戏什么的，本游戏起初是根据我手机里一个游戏《魔塔前传》改编，后来本人搜寻图片时发现已有魔塔v1.12的Flash游戏，也有一个网页js版的魔塔1.0，但是浏览器不兼容只能在IE下玩，于是将图片资源拿过来用了，部分图片是1.0中没有的，就直接从Flash游戏中截图处理过来，所以游戏中部分图片会有瑕疵。</p>
+    	<p>去年年底项目完成后闲得蛋疼，想做点事情，就想搞个游戏什么的，本游戏起初是根据我手机里一个游戏《魔塔前传》改编，后来本人搜寻图片时发现已有魔塔v1.12的Flash游戏，也有一个网页js版的魔塔1.0，但是浏览器不兼容只能在IE下玩，游戏功能少，效果差，于是将图片资源拿过来用了，部分图片是1.0中没有的，就直接从Flash游戏中截图处理过来，所以游戏中部分图片会有瑕疵。</p>
         <p>由于时间原因，游戏优化和游戏地图后续部分(最后5层)有情节尚未完成，将持续更新。有兴趣的朋友如发现BUG，可以将问题描述到这里：<a href="https://github.com/Shaman05/mota/issues" target="_blank">js魔塔</a></p>
     </div>
     <div class="save_load">
+        <select class="game_speed" id="game_speed">
+            <option value="0" selected>选择战斗速度</option>
+            <option value="1">慢速(1s/回合)</option>
+            <option value="2">中等(0.5s/回合)</option>
+            <option value="3">快速(0.2s/回合)</option>
+            <option value="4">极快(50ms/回合)</option>
+        </select>
         <a href="javascipt:" id="saveBtn" class="btn">保存游戏</a>
         <a href="javascipt:" id="loadBtn" class="btn">载入进度</a>
     </div>

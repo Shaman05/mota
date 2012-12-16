@@ -51,8 +51,9 @@ define(function(require, exports, modules){
         },
         start : function(){
             $(function(){
-                //增加图片预加载  优化地图显示速度
-                $.preloadImage(["resources_image.png"],init);
+                $("<img/>").attr("src","image/resources_image.png").load(function(){
+                    init();
+                });
             })
 
             function init(){
@@ -119,6 +120,31 @@ define(function(require, exports, modules){
                     }
                     return false;
                 });
+                $("#game_speed").change(function(){
+                    var val = $(this).val();
+                    var speed = 500;
+                    switch(val){
+                        case "0":
+                            speed = 500;
+                            break
+                        case "1":
+                            speed = 1000;
+                            break
+                        case "2":
+                            speed = 500;
+                            break
+                        case "3":
+                            speed = 200;
+                            break
+                        case "4":
+                            speed = 50;
+                            break
+                        default:
+                            return;
+                    }
+                    $(this).blur();
+                    mota.fighting.fightSpeed = speed;
+                });
 
                 function meta(){
                     pageWrap.animate({"margin-left":-416},500,function(){
@@ -143,15 +169,6 @@ define(function(require, exports, modules){
                     $(this).remove();
                     util.$toggleDebug();
                 })
-            }
-            jQuery.preloadImage=function(images,callback){
-                //console.log(arguments[0].length)
-                for(var i=0; i<arguments[0].length; i++){
-                    $("<img/>").attr("src","image/"+arguments[0][i]).load(function(){
-                        //console.log($(this).attr("src")+" hasbeen loaded");
-                    });
-                }
-                if(typeof(callback) === "function")callback();
             }
         },
         createPlayer : function(){

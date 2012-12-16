@@ -17,7 +17,7 @@ define(function(require, exports, module){
         this.player = null;
         this.box = $("#pop_wrap");
         this.timer = null;
-        this.fightSpeed = 200;
+        this.fightSpeed = 500;
     }
 
     Fighting.prototype = {
@@ -65,6 +65,7 @@ define(function(require, exports, module){
             clearInterval(this.timer);
             $("#fc_p").html("战斗结束！");
             $("#fend").show();
+            mota._Debug.log("战斗胜利，你获得了" + "<strong> " + this.obj.option["win"].expe + " </strong>点经验和 <strong>" + this.obj.option["win"].money + "</strong> 个金币。", true);
             this.player.addPrototype(this.obj);
             $(document).bind("keyup", mota.event._Fight_end);
         },
@@ -82,16 +83,20 @@ define(function(require, exports, module){
             var _that = this;
             var enemy = this.obj.clone();
             var player = this.player;
+            var pa = player.attack;
+            var pd = player.defense;
+            var ea = enemy.attack;
+            var ed = enemy.defense;
             function gogo(){  //战斗排序是以玩家为先手
                 var eh = $("#eh");
-                enemy.health -= player.attack - enemy.defense > 0 ? player.attack - enemy.defense : 0 ;
+                enemy.health -= pa - ed > 0 ? pa - ed : 0 ;
                 eh.html(enemy.health);
                 if(enemy.health <= 0){
                     eh.html(0);
                     _that.end();
                     return
                 }
-                player.health -= enemy.attack - player.defense > 0 ? enemy.attack - player.defense : 0 ;
+                player.health -= ea - pd > 0 ? ea - pd : 0 ;
                 $("#ph").html(player.health);
             }
         },
@@ -104,15 +109,21 @@ define(function(require, exports, module){
     function fightingTest(o, p){
         var enemy = o.clone();
         var player = p.clone();
+        var lossHealth = 0;
+        var pa = player.attack;
+        var pd = player.defense;
+        var ea = enemy.attack;
+        var ed = enemy.defense;
         function gogo(){  //战斗排序是以玩家为先手
-            enemy.health -= player.attack - enemy.defense > 0 ? player.attack - enemy.defense : 0 ;
+            enemy.health -= pa - ed > 0 ? pa - ed : 0 ;
             if(enemy.health <= 0){
-                return { isWin : true , loss : p.health - player.health}
+                return { isWin : true , loss : lossHealth};
             }
-            player.health -= enemy.attack - player.defense > 0 ? enemy.attack - player.defense : 0 ;
             if(player.health <= 0){
-                return { isWin : false , loss : "???"}
+                return { isWin : false , loss : "???"};
             }
+            player.health -= ea - pd > 0 ? ea - pd : 0 ;
+            lossHealth += ea - pd;
             return gogo(); //递归 继续下一回合
         }
         return gogo();

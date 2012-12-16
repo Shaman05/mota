@@ -96,7 +96,7 @@ define(function(require, exports, module){
             if(x >= 0 && x <= 10 && y >= 0 && y <= 10){
                 var objCode = mota.data.map["floor_" + this.f][y][x];  //获取到地图对象代号
                 var o = mota[mota.data._map[objCode]];  //通过代号映射获取到真实对象
-                console.log(o);
+                //console.log(o);
                 if(o == null || o.name == mota.player.name) //无障碍和玩家位置
                     return { canMove : true }
                 if(o.type == "barrier") //墙、火、星空等其他障碍物
@@ -173,7 +173,11 @@ define(function(require, exports, module){
             this.refreshData();
         },
         clone : function(){
-            return new Player(this.name);
+            var newObj = {};
+            for(var p in this){
+                newObj[p] = this[p];
+            }
+            return newObj;
         },
         refreshData : function(){
             $("#floor_index").text(this.f);
