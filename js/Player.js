@@ -53,10 +53,10 @@ define(function(require, exports, module){
         move : function(direct){
             this.direct = direct;
             if(this.allowMove){
-                var player = $("#" + this.name),
+                var player = $("#player"),
                     cssDirect = null,
                     cssStep = null;
-                player.attr("class","player_" + direct);
+                player.attr("class","block player_" + direct);
                 var _left = parseInt(player.css("left")),
                     _top = parseInt(player.css("top"));
                 if(direct == "left"){
@@ -141,7 +141,7 @@ define(function(require, exports, module){
             }
         },
         changePosition : function(direct){
-            var player = $("#" + this.name);
+            var player = $("#player");
             var d = direct;
             var _left = parseInt(player.css("left"));
             var _top = parseInt(player.css("top"));

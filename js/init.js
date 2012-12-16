@@ -52,19 +52,7 @@ define(function(require, exports, modules){
         start : function(){
             $(function(){
                 //增加图片预加载  优化地图显示速度
-                $.preloadImage([
-                    "enemy_01.jpg","enemy_02.jpg","enemy_03.jpg","enemy_04.jpg","enemy_05.jpg","enemy_06.jpg",
-                    "enemy_07.jpg","enemy_08.jpg","enemy_09.jpg","enemy_10.jpg","enemy_11.jpg","enemy_12.jpg",
-                    "enemy_13.jpg","enemy_14.jpg","enemy_15.jpg","enemy_16.jpg","enemy_17.jpg","enemy_18.jpg",
-                    "enemy_19.jpg","enemy_20.jpg","enemy_21.jpg","enemy_22.jpg","enemy_23.jpg","enemy_24.jpg",
-                    "enemy_25.jpg","enemy_26.jpg","enemy_27.jpg","enemy_28.jpg","enemy_29.jpg","enemy_30.jpg",
-                    "enemy_31.jpg","item_yellowKey.jpg","item_blueKey.jpg","item_redKey.jpg","item_keyList.jpg",
-                    "item_blueStone.jpg","item_redStone.jpg","item_bluePotions.jpg","item_redPotions.jpg","item_sword_1.jpg",
-                    "item_sgh.jpg","item_tiedun.jpg","item_xiaofeiyu.jpg","item_jinbidai.jpg","item_smszj.jpg","item_ssp.jpg",
-                    "item_fzlp.jpg","item_xgsl.jpg","item_hjd.jpg","shop_left.jpg","shop.jpg","shop_npc.jpg","shop_right.jpg",
-                    "door_blue.jpg","door_red.jpg","door_gold.jpg","fence.jpg","jack.jpg","princess.jpg","shop_key.jpg",
-                    "player.png","angle.jpg","fire.jpg","sky.jpg","go_up.jpg","go_down.jpg","door_yellow.jpg"
-                ],init);
+                $.preloadImage(["resources_image.png"],init);
             })
 
             function init(){
@@ -72,11 +60,13 @@ define(function(require, exports, modules){
                 var rights = $(".rights");
                 var pageWrap = $(".page_wrap");
                 var backBtn = $("#back");
+                var panel = $("#info");
 
 
                 welCome.removeClass("loading");
                 $(".chapter").animate({"margin-top":0},1000,function(){
                     rights.fadeIn(500);
+                    panel.show();
                     $("#new_game").click(function(){
                         $("#records").hide();
                         $(".new_game").show();
@@ -114,11 +104,11 @@ define(function(require, exports, modules){
                 $("#loadBtn,#load_game_1").click(function(){
                     var record = mota.localSave['mota_localStorage'];
                     if(record){
+                        mota.map = new Map();
+                        mota.load();
                         welCome.fadeOut(500,function(){
-                            mota.map = new Map();
                             mota._T = new Debug.Timer();
                             mota._T.run();
-                            mota.load();
                             mota._Debug.log("载入游戏成功！开始重新计时...", true);
                             if($(".debug").css("display") !== "block"){
                                 util.$toggleDebug();
@@ -161,8 +151,7 @@ define(function(require, exports, modules){
                         //console.log($(this).attr("src")+" hasbeen loaded");
                     });
                 }
-                if(callback)
-                    callback();
+                if(typeof(callback) === "function")callback();
             }
         },
         createPlayer : function(){

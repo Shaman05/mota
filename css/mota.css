@@ -47,7 +47,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .save_load{position: absolute; right: 9px; bottom: 2px;}
 
 /*弹出层*/
-.pop_wrap{height:352px; width:352px; position:absolute; z-index:99; left:32px; top:32px; background:none;}
+.pop_wrap{height:352px; width:352px; position:absolute; z-index:99; left:32px; top:32px}
 .dialog_box,.dialog_arrow_up,.dialog_arrow_down{border:1px #F90 solid; background:#FFC}
 .dialog_box{border-radius:6px; color:#603; position:absolute; width:100%; opacity:0.9; filter:alpha(opacity=90)}
 .dialog_box p,.dialog_box .continue{padding:6px 16px}
@@ -83,9 +83,10 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .use_fzlp ul{padding-left:30px}
 .use_fzlp li{float:left; width:70px; margin-bottom:2px}
 .selectItem{padding:6px 60px 0}
+.block,.key{background-image:url("./../image/resources_image.png"); background-repeat:no-repeat;}
 
 /*属性面板*/
-.info{position:absolute; width:390px; height:70px; left:50%; margin-left:-195px; bottom:10px; border:2px #F93 solid; border-radius:6px; background:#66F; overflow:hidden; zoom:1}
+.info{position:absolute; width:390px; height:70px; left:50%; margin-left:-195px; bottom:10px; border:2px #F93 solid; border-radius:6px; background:#66F; overflow:hidden; zoom:1; display:none;}
 .info_col{float:left; height:70px}
 .info_col p{height:20px; line-height:20px}
 .info_col_1 p,.info_col_2 p{margin-top:10px;}
@@ -98,102 +99,92 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .info_col_3 p{margin-top:2px}
 .info_col_3 p span{display:block}
 .info p strong{font-weight:normal;}
-.key{padding-left:20px; background-image:url(../image/key.png); background-repeat:no-repeat}
-.yellow_key_icon{background-position:0 0; color:yellow}
-.blue_key_icon{background-position:0 -20px; color:blue}
-.red_key_icon{background-position:0 -40px; color:red}
+.key{padding-left:26px}
+.yellow_key_icon{background-position:-300px -80px; color:yellow}
+.blue_key_icon{background-position:-300px -100px; color:blue}
+.red_key_icon{background-position:-300px -120px; color:red}
 
 /*玩家*/
-.player_up,.player_down,.player_left,.player_right,.block{height:32px; width:32px; position:absolute; z-index:10}
-.block{z-index:9}
-.player_up,.player_down,.player_left,.player_right{background-image:url(../image/player.png); background-repeat:no-repeat}
-.player_up{background-position:-32px 0}
-.player_down{background-position:0 0}
-.player_left{background-position:0 -32px}
-.player_right{background-position:-32px -32px}
-
-/*障碍物*/
-.wall{background:url(../image/wall.jpg) no-repeat 0 0}
-.fire{background:url(../image/fire.jpg) no-repeat 0 0}
-.sky{background:url(../image/sky.jpg) no-repeat 0 0}
-.shop_left{background:url(../image/shop_left.jpg) no-repeat 0 0}
-.shop_m_l,.shop_m_h{background:url(../image/shop.jpg) no-repeat 0 0}
-.shop_e_l,.shop_e_h{background:url(../image/shop_npc.jpg) no-repeat 0 0}
-.shop_right{background:url(../image/shop_right.jpg) no-repeat 0 0}
-.go_up{background:url(../image/go_up.jpg) no-repeat 0 0}
-.go_down{background:url(../image/go_down.jpg) no-repeat 0 0}
-.blue_door{background:url(../image/door_blue.jpg) no-repeat 0 0}
-.yellow_door{background:url(../image/door_yellow.jpg) no-repeat 0 0}
-.red_door{background:url(../image/door_red.jpg) no-repeat 0 0}
-.gold_door{background:url(../image/door_gold.jpg) no-repeat 0 0}
-.fence{background:url(../image/fence.jpg) no-repeat 0 0}
+.block{height:32px; width:32px; position:absolute; z-index:9;}
+.player_up,.player_down,.player_left,.player_right{z-index:10}
+.player_up{background-position:-288px 0}
+.player_down{background-position:-256px 0}
+.player_left{background-position:-256px -32px}
+.player_right{background-position:-288px -32px}
 
 /*NPC*/
-.angle{background:url(../image/angle.jpg) no-repeat 0 0}
-.jack{background:url(../image/jack.jpg) no-repeat 0 0}
-.princess{background:url(../image/princess.jpg) no-repeat 0 0}
-.smlr_03,.smlr_16{background:url(../image/shop_npc.jpg) no-repeat 0 0}
-.sr_03,.sr_16,.shop_key_sell,.shop_key_buy{background:url(../image/shop_key.jpg) no-repeat 0 0}
+.angle{background-position:-32px 0}
+.jack{background-position:0 0}
+.princess{background-position:-128px 0}
+.smlr_03,.smlr_16,.shop_e_l,.shop_e_h{background-position:-64px 0}
+.sr_03,.sr_16,.shop_key_sell,.shop_key_buy{background-position:-96px 0}
+.shop_left{background-position:-160px 0}
+.shop_m_l,.shop_m_h{background-position:-192px 0}
+.shop_right{background-position:-224px 0}
 
-/*怪物*/
-.enemy_01{background:url(../image/enemy_01.jpg) no-repeat 0 0}
-.enemy_02{background:url(../image/enemy_02.jpg) no-repeat 0 0}
-.enemy_03{background:url(../image/enemy_03.jpg) no-repeat 0 0}
-.enemy_04{background:url(../image/enemy_04.jpg) no-repeat 0 0}
-.enemy_05{background:url(../image/enemy_05.jpg) no-repeat 0 0}
-.enemy_06{background:url(../image/enemy_06.jpg) no-repeat 0 0}
-.enemy_07{background:url(../image/enemy_07.jpg) no-repeat 0 0}
-.enemy_08{background:url(../image/enemy_08.jpg) no-repeat 0 0}
-.enemy_09{background:url(../image/enemy_09.jpg) no-repeat 0 0}
-.enemy_10{background:url(../image/enemy_10.jpg) no-repeat 0 0}
-.enemy_11{background:url(../image/enemy_11.jpg) no-repeat 0 0}
-.enemy_12{background:url(../image/enemy_12.jpg) no-repeat 0 0}
-.enemy_13{background:url(../image/enemy_13.jpg) no-repeat 0 0}
-.enemy_14{background:url(../image/enemy_14.jpg) no-repeat 0 0}
-.enemy_15{background:url(../image/enemy_15.jpg) no-repeat 0 0}
-.enemy_16{background:url(../image/enemy_16.jpg) no-repeat 0 0}
-.enemy_17{background:url(../image/enemy_17.jpg) no-repeat 0 0}
-.enemy_18{background:url(../image/enemy_18.jpg) no-repeat 0 0}
-.enemy_19{background:url(../image/enemy_19.jpg) no-repeat 0 0}
-.enemy_20{background:url(../image/enemy_20.jpg) no-repeat 0 0}
-.enemy_21{background:url(../image/enemy_21.jpg) no-repeat 0 0}
-.enemy_22{background:url(../image/enemy_22.jpg) no-repeat 0 0}
-.enemy_23{background:url(../image/enemy_23.jpg) no-repeat 0 0}
-.enemy_24{background:url(../image/enemy_24.jpg) no-repeat 0 0}
-.enemy_25{background:url(../image/enemy_25.jpg) no-repeat 0 0}
-.enemy_26{background:url(../image/enemy_26.jpg) no-repeat 0 0}
-.enemy_27{background:url(../image/enemy_27.jpg) no-repeat 0 0}
-.enemy_28{background:url(../image/enemy_28.jpg) no-repeat 0 0}
-.enemy_29{background:url(../image/enemy_29.jpg) no-repeat 0 0}
-.enemy_30{background:url(../image/enemy_30.jpg) no-repeat 0 0}
-.enemy_31{background:url(../image/enemy_31.jpg) no-repeat 0 0}
-.enemy_32{background:url(../image/enemy_32.jpg) no-repeat 0 0}
-.enemy_33{background:url(../image/enemy_33.jpg) no-repeat 0 0}
+/*障碍物*/
+.wall{background-position:0 -32px}
+.sky{background-position:-32px -32px}
+.fire{background-position:-64px -32px}
+.gold_door{background-position:-96px -32px}
+.blue_door{background-position:-192px -32px}
+.yellow_door{background-position:-128px -32px}
+.red_door{background-position:-160px -32px}
+.fence{background-position:-288px -32px}
+.go_up{background-position:0 -64px}
+.go_down{background-position:-32px -64px}
 
 /*物品*/
-.yellow_key{background:url(../image/item_yellowKey.jpg) no-repeat 0 0}
-.blue_key{background:url(../image/item_blueKey.jpg) no-repeat 0 0}
-.red_key{background:url(../image/item_redKey.jpg) no-repeat 0 0}
-.keyList{background:url(../image/item_keyList.jpg) no-repeat 0 0}
-.blue_stone{background:url(../image/item_blueStone.jpg) no-repeat 0 0}
-.red_stone{background:url(../image/item_redStone.jpg) no-repeat 0 0}
-.blue_potions{background:url(../image/item_bluePotions.jpg) no-repeat 0 0}
-.red_potions{background:url(../image/item_redPotions.jpg) no-repeat 0 0}
-.sword_1,.sword_2{background:url(../image/item_sword_1.jpg) no-repeat 0 0}
-.sgh{background:url(../image/item_sgh.jpg) no-repeat 0 0}
-.tiedun{background:url(../image/item_tiedun.jpg) no-repeat 0 0}
-.xiaofeiyu,.dafeiyu{background:url(../image/item_xiaofeiyu.jpg) no-repeat 0 0}
-.jinbidai{background:url(../image/item_jinbidai.jpg) no-repeat 0 0}
-.smszj{background:url(../image/item_smszj.jpg) no-repeat 0 0}
-.ssp{background:url(../image/item_ssp.jpg) no-repeat 0 0}
-.fzlp{background:url(../image/item_fzlp.jpg) no-repeat 0 0}
-.xgsl{background:url(../image/item_xgsl.jpg) no-repeat 0 0}
-.hjd{background:url(../image/item_hjd.jpg) no-repeat 0 0}
+.yellow_key{background-position:-64px -64px}
+.blue_key{background-position:-96px -64px}
+.red_key{background-position:-128px -64px}
+.keyList{background-position:-160px -64px}
+.sgh{background-position:-192px -64px}
+.smszj{background-position:-224px -64px}
+.blue_stone{background-position:-64px -96px}
+.red_stone{background-position:-96px -96px}
+.blue_potions{background-position:0 -96px}
+.red_potions{background-position:-32px -96px}
+.ssp{background-position:-128px -96px}
+.xgsl{background-position:-160px -96px}
+.sword_1,.sword_2{background-position:-192px -96px}
+.tiedun{background-position:-224px -96px}
+.fzlp{background-position:0 -128px}
+.hjd{background-position:-32px -128px}
+.jinbidai{background-position:-64px -128px}
+.xiaofeiyu,.dafeiyu{background-position:-96px -128px}
 
-
-
-
-
-
-
-
+/*怪物*/
+.enemy_01{background-position:0 -160px}
+.enemy_02{background-position:-32px -160px}
+.enemy_03{background-position:-64px -160px}
+.enemy_04{background-position:-96px -160px}
+.enemy_05{background-position:-128px -160px}
+.enemy_06{background-position:-160px -160px}
+.enemy_07{background-position:-192px -160px}
+.enemy_08{background-position:-224px -160px}
+.enemy_09{background-position:-256px -160px}
+.enemy_10{background-position:-288px -160px}
+.enemy_11{background-position:0 -192px}
+.enemy_12{background-position:-32px -192px}
+.enemy_13{background-position:-64px -192px}
+.enemy_14{background-position:-96px -192px}
+.enemy_15{background-position:-128px -192px}
+.enemy_16{background-position:-160px -192px}
+.enemy_17{background-position:-192px -192px}
+.enemy_18{background-position:-224px -192px}
+.enemy_19{background-position:-256px -192px}
+.enemy_20{background-position:-288px -192px}
+.enemy_21{background-position:0 -224px}
+.enemy_22{background-position:-32px -224px}
+.enemy_23{background-position:-64px -224px}
+.enemy_24{background-position:-96px -224px}
+.enemy_25{background-position:-128px -224px}
+.enemy_26{background-position:-160px -224px}
+.enemy_27{background-position:-192px -224px}
+.enemy_28{background-position:-224px -224px}
+.enemy_29{background-position:-256px -224px}
+.enemy_30{background-position:-288px -224px}
+.enemy_31{background-position:0 -256px}
+.enemy_32{background-position:-32px -256px}
+.enemy_33{background-position:-64px -256px}

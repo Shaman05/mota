@@ -17,7 +17,7 @@ define(function(require, exports, module){
         this.player = null;
         this.box = $("#pop_wrap");
         this.timer = null;
-        this.fightSpeed = 50;
+        this.fightSpeed = 200;
     }
 
     Fighting.prototype = {
@@ -31,7 +31,7 @@ define(function(require, exports, module){
                     enemy = this.obj;
                 var html = '<div class="ft">'+
                     '<div class="fplayer">'+
-                    '<div class="player_down">'+'</div>'+
+                    '<div class="block player_down">'+'</div>'+
                     '<div class="row"><span>生命：</span><span id="ph">'+player.health+'</span></div>'+
                     '<div class="row"><span>攻击：</span>'+player.attack+'</div>'+
                     '<div class="row"><span>防御：</span>'+player.defense+'</div>'+

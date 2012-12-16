@@ -31,8 +31,8 @@ define(function(require, exports, module){
                     var objName = mota.data._map[objCode];
                     var o = mota[objName];
                     if(!!o){
-                        var id = o.name == player.name ? player.name : o.id ? o.id : "";
-                        var cn = o.name == player.name ? "player_" + o.direct : "block " + o.name;
+                        var id = o.name == player.name ? "player" : o.id ? o.id : "";
+                        var cn = o.name == player.name ? "block player_" + o.direct : "block " + o.name;
                         var x = j * 32;
                         var y = i * 32;
                         mapHtml += '<div id="' + id + '" class="' + cn + '" style="left:' + x + 'px;top:' + y + 'px"></div>';
@@ -105,6 +105,7 @@ define(function(require, exports, module){
 
         save : function(){
             //需要存储 1.地图数据 2.玩家数据 3.与NPC对话的索引
+            mota.player.allowMove = true; //需要修复当玩家正处于对话、购物、战斗时候保存游戏时，重置玩家可移动
             var DATA = {
                 map : mota.data.map,
                 player : mota.player.getProperty(),
@@ -114,6 +115,7 @@ define(function(require, exports, module){
         },
 
         load : function(){
+            this.clear();
             var record = mota.localSave['mota_localStorage'];
             if(record){
                 var DATA = JSON.parse(record);
@@ -128,6 +130,10 @@ define(function(require, exports, module){
             }else{
                 alert("尚无游戏记录！");
             }
+        },
+
+        clear : function(){
+            $(".dialog_box,.fighting_box,.shop_box").remove();
         }
     }
 });
