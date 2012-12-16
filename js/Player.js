@@ -24,13 +24,13 @@ define(function(require, exports, module){
         this.f_arr = [1];  //存储玩家所去过的楼层 初始存入第一层
         this.rank = 1; //玩家等级
         this.health = 1000; //玩家生命
-        this.money = 1000; //玩家金钱
+        this.money = 0; //玩家金钱
         this.attack = 10; //玩家攻击力
         this.defense = 10; //玩家防御力
-        this.expe = 1000; //玩家经验值
+        this.expe = 0; //玩家经验值
         this.yellow_key = 3; //玩家拥有的黄钥匙
-        this.blue_key = 3; //玩家拥有的蓝钥匙
-        this.red_key = 3; //玩家拥有的红钥匙
+        this.blue_key = 1; //玩家拥有的蓝钥匙
+        this.red_key = 1; //玩家拥有的红钥匙
         //this.moveSpeed = 100; //玩家移动速度 暂时关闭移动动画
 
         //以下是隐藏的属性
