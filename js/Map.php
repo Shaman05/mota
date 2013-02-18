@@ -1,6 +1,3 @@
-<?php
-	$v = $_GET["v"];
-?>
 // JavaScript Document
 // Map
 
@@ -105,9 +102,6 @@ var enemy_01 = new Monster("enemy_01"),
 	每层地图通过一个二维数组来创建地图
 	[ ,  ,  ,  ,  ,  ,  ,  ,  ,  , ],
 *******************************/
-<?php 
-	if($v == "0"){
-?>
 var _Map = {
 	"updata_player_position" : [
 		{},
@@ -421,9 +415,6 @@ var _Map = {
 		[_Sky , _Sky , _Sky , _Sky , _Sky , _Sky , _Sky , _Sky , _Sky , _Sky , _Sky]
 	]
 }
-<?php 
-	}
-?>
 
 /*******************************
 	装载地图：

@@ -31,15 +31,15 @@ define(function(require, exports, module){
             this.show(this.obj.option["dialog_" + i] , this.sindex , direct);
             if(this.obj.name == "shop_m_l" || this.obj.name == "shop_m_h" || this.obj.name == "shop_e_l" || this.obj.name == "shop_e_h" || this.obj.name == "shop_key_sell" ||this.obj.name == "shop_key_buy"){ //触发购物
                 mota.event.EventShopping(this.obj , this.player);
-                $(document).unbind().bind("keyup", mota.event._Shop_ing);
+                $(document).unbind().bind("keydown", mota.event._Shop_ing);
             }else{  //普通对话
-                $(document).unbind().bind("keyup", mota.event._Dialog_ing);
+                $(document).unbind().bind("keydown", mota.event._Dialog_ing);
             }
         },
         close : function(){
             this.box.empty();
             mota.player.allowMove = true;
-            $(document).unbind().bind("keyup", mota.event._Player_Move);
+            $(document).unbind().bind("keydown", mota.event._Player_Move);
         },
         next : function(){
             this.box.empty();
@@ -147,7 +147,7 @@ define(function(require, exports, module){
                            '<div class="continue">按空格键继续...</div>' +
                        '</div>';
             $(html).appendTo(this.box);
-            $(document).unbind().bind("keyup",mota.event.showMessage_close);
+            $(document).unbind().bind("keydown",mota.event.showMessage_close);
         },
         viewEnemyInit : function(f){
             //获取到所有敌人
@@ -204,7 +204,7 @@ define(function(require, exports, module){
                 '<div class="continue">按空格键继续...</div>' +
             '</div>';
             $(html).appendTo(this.box);
-            $(document).unbind().bind("keyup", mota.event.showMessage_close);
+            $(document).unbind().bind("keydown", mota.event.showMessage_close);
         }
     }
 

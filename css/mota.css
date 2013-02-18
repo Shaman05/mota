@@ -22,8 +22,8 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .toggle_off .t_on{display:none}
 .rights{position:absolute; width: 408px; right:0; bottom:0; text-align:right; padding:0 8px 8px 0; color:#FC9; background: #2E2E2E; display: none;}
 .rights a{color: #95b3ff}
-.mapwrap{height:416px; width:352px; padding:32px; background:url(../image/wall.jpg) repeat 0 0; position:absolute; left:50%; top:50%; z-index:2; margin:-240px 0 0 -208px; box-shadow:0 0 5px #FFF; border-radius:5px}
-.map{height:352px; width:352px; background:url(../image/bg_map.jpg) repeat 0 0; position:relative}
+.mapwrap{height:416px; width:352px; padding:32px; background:url(../image/wall.png) repeat 0 0; position:absolute; left:50%; top:50%; z-index:2; margin:-240px 0 0 -208px; box-shadow:0 0 5px #FFF; border-radius:5px}
+.map{height:352px; width:352px; background:url(../image/bg_map.png) repeat 0 0; position:relative}
 .welcome{width:416px; height:480px; overflow:hidden; position:absolute; top:0; left:0; border-radius:5px; background:#2e2e2e; z-index:999999}
 .loading{background:#2e2e2e url(../image/perloading.gif) no-repeat center center}
 .chapter,.game_helper{padding:0 20px}
@@ -63,7 +63,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .showMessage{padding:12px 12px 0}
 .fighting_box{height:100%; width:100%; position:absolute; left:50%; top:50%; margin:-50% 0 0 -50%; background:#FFF; border-radius:5px; box-shadow:0 0 15px #F00; display:none}
 .ft,.fc{margin:15px}
-.ft,.enemyTable{overflow:hidden; zoom:1; background:url(../image/bg_map.jpg) repeat 0 0; position:relative}
+.ft,.enemyTable{overflow:hidden; zoom:1; background:url(../image/bg_map.png) repeat 0 0; position:relative}
 .ft .fvs{width:60px; height:60px; line-height:60px; font-size:50px; font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif; color:#F00; text-align:center; position:absolute; top:50%; left:50%; margin:-30px 0 0 -30px}
 .fplayer,.fenemy{float:left; width:140px; padding:10px 10px 4px}
 .fplayer .player_down,.fenemy .block,.enemyTable .block{position:static}
@@ -86,7 +86,7 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .use_fzlp li{float:left; width:70px; margin-bottom:2px}
 .selectItem{padding:6px 60px 0}
 .block,.key{background-image:url("./../image/resources_image.png"); background-repeat:no-repeat;}
-
+.frame2 .block,.frame2 .key{background-image:url("./../image/resources_image_2.png") !important;}
 /*属性面板*/
 .info{position:absolute; width:390px; height:70px; left:50%; margin-left:-195px; bottom:10px; border:2px #F93 solid; border-radius:6px; background:#66F; overflow:hidden; zoom:1; display:none;}
 .info_col{float:left; height:70px}
@@ -129,9 +129,9 @@ body,p,h1,h2,h3,h4,h5,h6,ul,li,dl{margin:0; padding:0}
 .sky{background-position:-32px -32px}
 .fire{background-position:-64px -32px}
 .gold_door{background-position:-96px -32px}
-.blue_door{background-position:-192px -32px}
+.red_door{background-position:-192px -32px}
 .yellow_door{background-position:-128px -32px}
-.red_door{background-position:-160px -32px}
+.blue_door{background-position:-160px -32px}
 .fence{background-position:-224px -32px}
 .go_up{background-position:0 -64px}
 .go_down{background-position:-32px -64px}

@@ -52,7 +52,9 @@ define(function(require, exports, modules){
         start : function(){
             $(function(){
                 $("<img/>").attr("src","image/resources_image.png").load(function(){
-                    init();
+                    $("<img/>").attr("src","image/resources_image_2.png").load(function(){
+                    	init();
+               		});
                 });
             })
 
