@@ -67,7 +67,7 @@ define(function(require, exports, module){
             $("#fend").show();
             mota._Debug.log("战斗胜利，你获得了" + "<strong> " + this.obj.option["win"].expe + " </strong>点经验和 <strong>" + this.obj.option["win"].money + "</strong> 个金币。", true);
             this.player.addPrototype(this.obj);
-            $(document).bind("keyup", mota.event._Fight_end);
+            $(document).bind("keydown", mota.event._Fight_end);
         },
         complete : function(){
             var player = this.player;
@@ -76,7 +76,7 @@ define(function(require, exports, module){
             player.refreshData();
             player.allowMove = true;
             mota.map.clearObject(this.obj);
-            $(document).unbind().bind("keyup", mota.event._Player_Move);
+            $(document).unbind().bind("keydown", mota.event._Player_Move);
         },
         fight : function(){
             this.timer = setInterval(gogo , this.fightSpeed);

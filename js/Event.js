@@ -17,22 +17,28 @@ define(function(require, exports, module){
             var _Player = mota.player;
             var kv = e.keyCode;
             if(kv == 37 ){ //向左
-                _Player.move("left")
+                _Player.move("left");
+                return false;
             }else if(kv == 39){  //向右
-                _Player.move("right")
+                _Player.move("right");
+                return false;
             }else if(kv == 38){  //向上
-                _Player.move("up")
+                _Player.move("up");
+                return false;
             }else if(kv == 40){  //向下
-                _Player.move("down")
+                _Player.move("down");
+                return false;
             }else if(kv == 76 ){ //查看怪物属性
                 if(_Player.items.sgh)  //必须要有圣光徽
                     mota.dialog.viewEnemyInit(_Player.f);
+                return false;
             }else if(kv == 74 ){ //跳跃楼层
                 if(_Player.items.fzlp)  //必须要有风之罗盘
                     if(_Player.f == 22)
                         mota.dialog.showMessage("很不幸，本层被魔咒笼罩着，风之罗盘失效了。");
                     else
                         mota.map.chooseFloor(_Player.f_arr);
+                return false;
             }
         },
 
@@ -101,6 +107,7 @@ define(function(require, exports, module){
             var kv = e.keyCode;
             if(kv == 32 ){ //按空格继续
                 mota.dialog.close();
+                return false;
             }
         },
 
@@ -109,6 +116,7 @@ define(function(require, exports, module){
             var kv = e.keyCode;
             if(kv == 32 ){ //按空格继续
                 mota.fighting.complete();
+                return false;
             }
         },
 
@@ -118,12 +126,16 @@ define(function(require, exports, module){
             if(kv == 32 ){ //按空格继续 取消购物
                 mota.dialog.close();
                 mota.shopping.end();
+                return false;
             }else if(kv == 38){  //向上移动选框
                 mota.shopping.selectItem("up");
+                return false;
             }else if(kv == 40){  //向下移动选框
                 mota.shopping.selectItem("down");
+                return false;
             }else if(kv == 13){  //按回车 确定购买所选物品
                 mota.shopping.ok();
+                return false;
             }
         },
 
@@ -134,12 +146,16 @@ define(function(require, exports, module){
             if(kv == 32 ){ //按空格继续 取消跳跃
                 mota.dialog.close();
                 _Player.Choose_end();
+                return false;
             }else if(kv == 38){  //选择上一层
                 _Player.Choose_floor("up");
+                return false;
             }else if(kv == 40){  //选择下一层
                 _Player.Choose_floor("down");
+                return false;
             }else if(kv == 13){  //按回车 确定跳跃
                 _Player.Go_floor();
+                return false;
             }
         }
     }

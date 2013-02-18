@@ -10,6 +10,9 @@
 
 define(function(require, exports, module){
     var mapBox = $("#map");
+    setInterval(function() {
+    	$("#map").toggleClass("frame2");
+    }, 500);
 
     module.exports = Map;
 
@@ -44,7 +47,7 @@ define(function(require, exports, module){
             }
             mapBox.html(mapHtml);
             player.refreshData();
-            $(document).unbind().bind("keyup", mota.event._Player_Move);
+            $(document).unbind().bind("keydown", mota.event._Player_Move);
         },
 
         clearObject : function(o){
@@ -100,7 +103,7 @@ define(function(require, exports, module){
                 '</div>';
             $(html).appendTo($("#pop_wrap"));
             mota._Debug.log("你打开了风之罗盘",true);
-            $(document).unbind().bind("keyup", mota.event._Use_fzlp);
+            $(document).unbind().bind("keydown", mota.event._Use_fzlp);
         },
 
         save : function(){
