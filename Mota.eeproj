@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--EmEditor Project file-->
+<Project>
+<Files>
+	<Filter Name="css">
+		<Filter Name="_notes">
+			<File RelativePath="css\_notes\dwsync.xml"/>
+		</Filter>
+		<File RelativePath="css\mota.css"/>
+	</Filter>
+	<Filter Name="image">
+		<Filter Name="_notes">
+			<File RelativePath="image\_notes\dwsync.xml"/>
+		</Filter>
+		<File RelativePath="image\bg_map.jpg"/>
+		<File RelativePath="image\perloading.gif"/>
+		<File RelativePath="image\resources_image.gif"/>
+		<File RelativePath="image\wall.jpg"/>
+	</Filter>
+	<File RelativePath="index.html"/>
+	<Filter Name="js">
+		<Filter Name="_notes">
+			<File RelativePath="js\_notes\dwsync.xml"/>
+		</Filter>
+		<File RelativePath="js\Barrier.js"/>
+		<File RelativePath="js\data.js"/>
+		<File RelativePath="js\Debug.js"/>
+		<File RelativePath="js\Dialog.js"/>
+		<File RelativePath="js\Door.js"/>
+		<File RelativePath="js\Event.js"/>
+		<File RelativePath="js\Fighting.js"/>
+		<File RelativePath="js\init.js"/>
+		<File RelativePath="js\Item.js"/>
+		<File RelativePath="js\jquery-1.6.min.js"/>
+		<File RelativePath="js\main.js"/>
+		<File RelativePath="js\Map.js"/>
+		<File RelativePath="js\Map.php"/>
+		<File RelativePath="js\Monster.js"/>
+		<File RelativePath="js\Npc.js"/>
+		<File RelativePath="js\Player.js"/>
+		<File RelativePath="js\sea.js"/>
+		<File RelativePath="js\sea-debug.js"/>
+		<File RelativePath="js\Shopping.js"/>
+		<File RelativePath="js\Stair.js"/>
+		<File RelativePath="js\util.js"/>
+	</Filter>
+	<File RelativePath="readme.txt"/>
+</Files>
+</Project>
